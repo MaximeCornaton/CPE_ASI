@@ -1,0 +1,65 @@
+<form
+  th:fragment="register"
+  th:action="@{/register}"
+  th:object="${addUserForm}"
+  method="POST"
+>
+  <fieldset>
+    <legend>Register</legend>
+    <div>
+      <label for="form-name">Name</label>
+      <div>
+        <input
+          id="form-name"
+          type="text"
+          placeholder="Your name..."
+          th::field="*{name}"
+        />
+      </div>
+    </div>
+    <div>
+      <label for="form-name">Surname</label>
+      <div>
+        <input
+          id="form-surnname"
+          type="text"
+          placeholder="Your surname..."
+          th::field="*{surname}"
+        />
+      </div>
+    </div>
+    <div>
+      <label for="form-password">Password</label>
+      <div>
+        <input
+          id="form-password"
+          type="password"
+          th::field="*{password}"
+        />
+      </div>
+    </div>
+    <div>
+      <input type="submit" class="uk-button uk-button-default" value="Create" />
+    </div>
+  </fieldset>
+</form>
+
+<form
+  th:fragment="login"
+  th:action="@{/addUser}"
+  th:object="${addUserForm}"
+  method="POST"
+>
+  <fieldset>
+    <legend>Login</legend>
+    <div>
+      <label for="form-surname">Surname</label>
+      <div>
+        <input id="form-surname" type="text" placeholder="Surname..." />
+      </div>
+    </div>
+    <div>
+      <input type="submit" class="uk-button uk-button-default" value="Create" />
+    </div>
+  </fieldset>
+</form>
