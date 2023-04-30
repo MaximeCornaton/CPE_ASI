@@ -2,27 +2,29 @@
     <html xmlns:th="http://www.thymeleaf.org">
     <head>
     <meta charset="UTF-8" />
-    <title>Welcome</title>
+    <title>CardView</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
     </head>
     <body>
     	<div th:replace="fragments/header :: header">
-    		<h1> THIS IS A DEFAULT HEADER</h1>
+    		<h1> CardView</h1>
     	</div>
     	<div>
-    		<img th:src="${myPoney.imgUrl}" alt="">
+    		<img th:src="${myCard.imgUrl}" alt="">
 
-    		<h3 th:utext="${myPoney.name}">...</h3>
+    		<h3 th:utext="${myCard.name}">...</h3>
 
-    		<div th:style="'background-color:'+${myPoney.color}">
-    			<p>
-    				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-    				do eiusmod tempor incididunt.
-    			</p>	
+    		<div>
+    			<p th:utext="${myCard.description}"></p>	
     		</div>
+    		<div>
+    			<p th:utext="${myCard.hp}"></p>
+    			<p th:utext="${myCard.defence}"></p>
+    			<p th:utext="${myCard.attack}"></p>
+    			<p th:utext="${myCard.energy}"></p>
 
-    		<h5 th:text="'affinity:  '+${myCard.affinity}">...</h5>
-    		<h5 th:text="'family:  '+${myCard.family}">...</h5>
+    		<h5 th:text="'Color:  '+${myCard.family}">...</h5>
+    		<h5 th:text="'SuperPower:  '+${myCard.affinity}">...</h5>
     	</div>
     </body>
     </html>

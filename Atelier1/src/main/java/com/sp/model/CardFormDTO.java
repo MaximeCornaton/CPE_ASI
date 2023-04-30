@@ -1,8 +1,7 @@
 package com.sp.model;
-import com.sp.model.Affinity;
-import com.sp.model.Family;
 
-public class Card  {
+public class CardFormDTO  {
+
 	private String name;
 	private String description;
 	private Family family;
@@ -13,7 +12,13 @@ public class Card  {
 	private int attack;
 	private int defence;
 
-	public Card() {
+	public String getImgUrl() {
+		return imgUrl;
+	}
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+	public CardFormDTO() {
 		this.name = "";
 		this.description = "";
 		this.family = Family.Bird;
@@ -23,9 +28,9 @@ public class Card  {
 		this.energy=0;
 		this.attack=0;
 		this.defence=0;
-		
 	}
-	public Card(String name,String description,Family family, String imgUrl, Affinity affinity, int hp, int energy, int attack, int defence) {
+
+	public CardFormDTO(String name,String description,Family family, String imgUrl, Affinity affinity, int hp, int energy, int attack, int defence) {
 		this.name = name;
 		this.description = description;
 		this.family = family;
@@ -73,22 +78,10 @@ public class Card  {
 		this.family = family;
 	}
 	/**
-	 * @return the imgUrl
-	 */
-	public String getImgUrl() {
-		return imgUrl;
-	}
-	/**
-	 * @param imgUrl the imgUrl to set
-	 */
-	public void setImgUrl(String imgUrl) {
-		this.imgUrl = imgUrl;
-	}
-	/**
 	 * @return the affinity
 	 */
 	public Affinity getAffinity() {
-		return this.affinity;
+		return affinity;
 	}
 	/**
 	 * @param affinity the affinity to set
@@ -144,6 +137,5 @@ public class Card  {
 	public void setDefence(int defence) {
 		this.defence = defence;
 	}
-
-
+	
 }
