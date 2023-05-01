@@ -18,13 +18,13 @@
     			<p th:utext="${myCard.description}"></p>	
     		</div>
     		<div>
-    			<p th:utext="${myCard.hp}"></p>
-    			<p th:utext="${myCard.defence}"></p>
-    			<p th:utext="${myCard.attack}"></p>
-    			<p th:utext="${myCard.energy}"></p>
+    			<p th:utext="'HP:  '+${myCard.hp}"></p>
+    			<p th:utext="'Defence:  '+${myCard.defence}"></p>
+    			<p th:utext="'Attack:  '+${myCard.attack}"></p>
+    			<p th:utext="'Energy:  '+${myCard.energy}"></p>
 
-    		<h5 th:text="'Color:  '+${myCard.family}">...</h5>
-    		<h5 th:text="'SuperPower:  '+${myCard.affinity}">...</h5>
+    		<h5 th:text="'Family:  '+${myCard.family}">...</h5>
+    		<h5 th:text="'Affinity:  '+${myCard.affinity}">...</h5>
     	</div>
     </body>
     </html>

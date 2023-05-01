@@ -16,7 +16,12 @@
   				<h3 th:utext="${card.name}">...</h3>
   				<p th:utext="'Description:  '+${card.description}"> ... </p>
   			</div>
-  		<li>
+  			<div>
+  				<p th:utext="'HP:  '+${card.hp}">...</p>
+  				<p th:utext="'Energy:  '+${card.energy}"> ...</p>
+  				<p th:utext="'Attack:  ' + ${card.attack}">...</p>
+  				<p th:utext="'Defence:  ' + ${card.defence}">...</p>
+  			</div>
   	</ul>
   </body>
   </html>
