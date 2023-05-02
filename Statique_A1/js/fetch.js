@@ -1,3 +1,4 @@
+let test;
 function addCard(){
 
     const requestOptions = {
@@ -28,17 +29,8 @@ function getCard(){
             },
         })
 
-    .then(function(res) {
-        if (res.ok){
-            const data = res.json();
-            console.log(data);
-        }
-        else{
-            console.log(error);
-        }
-    
-    })
-
+    .then(response => response.json())
+    .then(data => afficherCarte(data))
     .catch(error => console.error(error));
 
 }
