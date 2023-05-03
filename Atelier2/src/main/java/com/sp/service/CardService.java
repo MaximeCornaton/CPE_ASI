@@ -20,8 +20,13 @@ public class CardService {
 	 * @param id
 	 * @return la carte si elle existe sinon null;
 	 */
-	public Optional<Card> getCard(int id) {
-		return cRepo.findById(id);
+	public Card getCard(int id) {
+		Optional<Card> cOpt = cRepo.findById(id);
+		if(cOpt.isPresent()) {
+			return cOpt.get();
+		}else {
+			return null;
+		}
 	}
 	
 	/**
@@ -30,6 +35,15 @@ public class CardService {
 	 */
 	public Set<Card> getCards() {
 		return (Set<Card>) cRepo.findAll();
+	}
+	
+	
+	/**
+	 * @param id
+	 * @return le prix de la carte
+	 */
+	public int getPrice(int id) {
+		return getCard(id).getPrice();
 	}
 	
 	/*
