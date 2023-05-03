@@ -19,8 +19,8 @@ public class CardRestCrt {
 
 	
 	@RequestMapping(method=RequestMethod.GET,value="/getcard/{id}")
-	public void getCard(@PathVariable String id) {
-		System.out.println(id);
+	public void getCard(@PathVariable int id) {
+		CardService.getCard(id);
 	}
 	
 	@RequestMapping(method=RequestMethod.GET,value="/getcards")
