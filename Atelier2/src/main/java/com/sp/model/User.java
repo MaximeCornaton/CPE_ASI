@@ -26,6 +26,7 @@ public class User {
 	private String name;
 	private String surname;
 	private String password;
+	private int money;
 	
 	@OneToMany
 	@JoinTable( name = "TJ_USER_CARD",
@@ -38,6 +39,16 @@ public class User {
 	 */
 	public User() {
 		
+	}
+	
+	public Set<Card> getCardList(){
+		Set<Card> ret = null;
+		ret.addAll(this.cardList);
+		return ret;
+	}
+	
+	public void addCard(Card card) {
+		this.cardList.add(card);
 	}
 	/**
 	 * @return the id
@@ -86,6 +97,18 @@ public class User {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	/**
+	 * @return the money
+	 */
+	public int getMoney() {
+		return money;
+	}
+	/**
+	 * @param money the money to set
+	 */
+	public void setMoney(int money) {
+		this.money = money;
 	}
 
 }
