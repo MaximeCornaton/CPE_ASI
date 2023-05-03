@@ -4,7 +4,7 @@
 package com.sp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +23,7 @@ public class UserRestCrt {
 	private UserService uService;
 	
 	@RequestMapping(value = {"/register"}, method = RequestMethod.POST)
-	public String addUser(@ModelAttribute("addUserForm") User userForm) {
-
-		return "card";
+	public void addUser(@RequestBody  User user) {
+		uService.addUser(user);
+		
 	}}
