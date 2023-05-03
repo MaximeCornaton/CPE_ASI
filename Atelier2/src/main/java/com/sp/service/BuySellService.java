@@ -17,22 +17,24 @@ public class BuySellService{
 	private UserService uService;
 	
 	
-	public void buyCard(int idc, int idu) {
+	public boolean buyCard(int idc, int idu) {
+		
 		Card card = cService.getCard(idc);
 		int price = card.getPrice();
-		int userVault = uService.getUser(idu).getMoney();
 
-		if(price > userVault) {
-			return;
+		if(price > uService.getUser(idu).getMoney()) {
+			return false;
 		}
 		else {
 			uService.buyCard(card);
+			return true;
 		}
+		
+		return false;
 		
 	}
 	
 	public void sellCard(int idc) {
-		int price = cService.getCard(idc).getPrice();
 		uService.sellCard(card);
 	}
 }
