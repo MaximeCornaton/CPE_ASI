@@ -28,7 +28,7 @@ public class Card {
 	private int energy;
 	private int attack;
 	private int defence;
-	private int prix;
+	private int price;
 	
 	@ManyToOne
 	@JoinTable( name="TJ_USER_CARD",
@@ -48,7 +48,7 @@ public class Card {
 		this.energy = energy;
 		this.attack = attack;
 		this.defence = defence;
-		this.prix = prix;
+		this.price = prix;
 	}
 	
 	
@@ -220,16 +220,16 @@ public class Card {
 	/**
 	 * @return the prix
 	 */
-	public int getPrix() {
-		return prix;
+	public int getPrice() {
+		return this.price;
 	}
 
 
 	/**
 	 * @param prix the prix to set
 	 */
-	public void setPrix(int prix) {
-		this.prix = prix;
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 }
