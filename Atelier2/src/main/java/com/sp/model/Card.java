@@ -1,15 +1,24 @@
-/**
- * 
- */
 package com.sp.model;
+
+import com.sp.model.User;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * @author maxime
  *
  */
+@Entity @Table(name="T_CARD")
 public class Card {
 	
-	private int id; 
+	@Id
+	@GeneratedValue
+	private int idCard; 
 	private String name;
 	private String description;
 	private String imgUrl;
@@ -20,6 +29,12 @@ public class Card {
 	private int attack;
 	private int defence;
 	private int price;
+	
+	@ManyToOne
+	@JoinTable( name="TJ_USER_CARD",
+				joinColumns = @JoinColumn( name = "idCard"),
+				inverseJoinColumns = @JoinColumn(name="idUser"))
+	private User user;
 	
 
 	
@@ -46,7 +61,7 @@ public class Card {
 	 * @return the id
 	 */
 	public int getId() {
-		return id;
+		return idCard;
 	}
 
 
@@ -54,7 +69,7 @@ public class Card {
 	 * @param id the id to set
 	 */
 	public void setId(int id) {
-		this.id = id;
+		this.idCard = id;
 	}
 
 
