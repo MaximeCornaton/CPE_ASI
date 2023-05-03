@@ -19,9 +19,16 @@ public class BuySellService{
 	
 	public void buyCard(int idc, int idu) {
 		int price = cService.getCard(idc).getPrice();
+<<<<<<< HEAD
+		int userVault = uService.getmoney();
+=======
 		int userVault = uService.getArgent();
-		if(price > usreVault) {
+>>>>>>> a1147feeb4585aa34b3a42039fe7a2735aaf7ba3
+		if(price > userVault) {
 			return;
+		}
+		else {
+			uService.addCard(cService.getCard(idc));
 		}
 		
 	}
