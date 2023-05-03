@@ -1,6 +1,7 @@
 package com.sp.service;
 
 import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,7 @@ public class CardService {
 	 * @param
 	 * @return les cartes
 	 */
-	public HashSet<Card> getCards() {
+	public Set<Card> getCards() {
 		return null;
 	}
 	
