@@ -1,10 +1,12 @@
 package com.sp.repository;
 
+import org.springframework.data.repository.CrudRepository;
+
 import com.sp.model.Card;
 
-public interface CardRepository{
+public interface CardRepository extends CrudRepository<Card, Integer>{
 	
-	Card findbyId(int id);
+	/* public Card findbyId(int id); */
 	
 	
 }

@@ -1,22 +1,27 @@
 package com.sp.service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sp.model.Card;
+import com.sp.repository.CardRepository;
 
 @Service
 public class CardService {
 	
+	@Autowired
+	private CardRepository cRepo;
 	
 	/**
 	 * @param id
-	 * @return la carte 
+	 * @return la carte si elle existe sinon null;
 	 */
-	public Card getCard(int id) {
-		return null;
+	public Optional<Card> getCard(int id) {
+		return cRepo.findById(id);
 	}
 	
 	/**
@@ -24,7 +29,7 @@ public class CardService {
 	 * @return les cartes
 	 */
 	public Set<Card> getCards() {
-		return null;
+		return (Set<Card>) cRepo.findAll();
 	}
 	
 	/*
@@ -35,9 +40,11 @@ public class CardService {
 	 * 
 	 * @param card 
 	 */
-	public void addCard(Card card) {
-		
-	}
+	/*
+	 * public void addCard(Card card) {
+	 * 
+	 * }
+	 */
 	
 	
 	
