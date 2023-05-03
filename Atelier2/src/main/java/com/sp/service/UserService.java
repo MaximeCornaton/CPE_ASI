@@ -32,4 +32,14 @@ public class UserService {
 			return null;
 		}
 	}
+	
+	public User getUser(int id) {
+		Optional<User> uOpt = uRepository.findById(id);
+		if(uOpt.isPresent()) {
+			return uOpt.get();
+		}
+		else {
+			return null; 
+		}
+	}
 }
