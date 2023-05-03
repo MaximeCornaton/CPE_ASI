@@ -5,8 +5,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sp.model.Card;
 import com.sp.service.CardService;
-import com.sp.service.UserService;
 
 @Service
 public class BuySellService{
@@ -18,22 +18,21 @@ public class BuySellService{
 	
 	
 	public void buyCard(int idc, int idu) {
-		int price = cService.getCard(idc).getPrice();
-<<<<<<< HEAD
-		int userVault = uService.getmoney();
-=======
-		int userVault = uService.getArgent();
->>>>>>> a1147feeb4585aa34b3a42039fe7a2735aaf7ba3
+		Card card = cService.getCard(idc);
+		int price = card.getPrice();
+		int userVault = uService.getUser(idu).getMoney();
+
 		if(price > userVault) {
 			return;
 		}
 		else {
-			uService.addCard(cService.getCard(idc));
+			uService.buyCard(card);
 		}
 		
 	}
 	
 	public void sellCard(int idc) {
-		
+		int price = cService.getCard(idc).getPrice();
+		uService.sellCard(card);
 	}
 }
