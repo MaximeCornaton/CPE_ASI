@@ -1,5 +1,6 @@
 package com.sp.controller;
 
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +19,20 @@ public class CardRestCrt {
 	@Autowired
 	private CardService CardService;
 
-	
+	/**
+	 * 
+	 * @param id
+	 * @return la carte si elle existe sinon null;
+	 */
 	@RequestMapping(method=RequestMethod.GET,value="/getcard/{id}")
-	public Card getCard(@PathVariable int id) {
+	public Optional<Card> getCard(@PathVariable int id) {
 		return CardService.getCard(id);
 	}
 	
+	/**
+	 * 
+	 * @return les cartes existantes
+	 */
 	@RequestMapping(method=RequestMethod.GET,value="/getcards")
 	public Set<Card> getCards() {
 		return CardService.getCards();
