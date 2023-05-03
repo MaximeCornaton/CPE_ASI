@@ -2,11 +2,15 @@ package com.sp.service;
 
 import org.springframework.stereotype.Service;
 
+import com.sp.model.Card;
+
 @Service
 public class CardService {
 	
-	public String addSuffix(String msg) {
-		return msg +"\n"+ "Service processing";
+	public Card getCard(int id) {
+		return null;
+		
 	}
+	
 	
 }
