@@ -111,4 +111,10 @@ public class User {
 		this.money = money;
 	}
 
+	@Override
+	public String toString() {
+		return "User [idUser=" + idUser + ", name=" + name + ", surname=" + surname + ", password=" + password
+				+ ", money=" + money + ", cardList=" + cardList + "]";
+	}
+
 }
