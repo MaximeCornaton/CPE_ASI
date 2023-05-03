@@ -3,19 +3,36 @@
  */
 package com.sp.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * @author paulaubry
  *
  */
-@Entity
+@Entity @Table(name="T_USER")
 public class User {
 	
-	private int id;
+	@Id
+	@GeneratedValue
+	private int idUser;
 	private String name;
 	private String surname;
 	private String password;
+	
+	@OneToMany
+	@JoinTable( name = "TJ_USER_CARD",
+				joinColumns = @JoinColumn(name = "idUser"),
+				inverseJoinColumns = @JoinColumn(name="idCard"))
+	private Set<Card> cardList;
+	
 	/**
 	 * 
 	 */
@@ -26,13 +43,13 @@ public class User {
 	 * @return the id
 	 */
 	public int getId() {
-		return id;
+		return idUser;
 	}
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(int id) {
-		this.id = id;
+		this.idUser = id;
 	}
 	/**
 	 * @return the name
