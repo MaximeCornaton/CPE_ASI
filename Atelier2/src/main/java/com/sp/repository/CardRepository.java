@@ -6,4 +6,5 @@ public interface CardRepository{
 	
 	Card findbyId(int id);
 	
+	
 }
