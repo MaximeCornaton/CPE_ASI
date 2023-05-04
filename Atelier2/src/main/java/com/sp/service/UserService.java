@@ -3,6 +3,7 @@ package com.sp.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.sp.model.Card;
 import com.sp.model.User;
 import com.sp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +42,11 @@ public class UserService {
 		else {
 			return null; 
 		}
+	}
+	
+	public void buyCard(Card card, int idu) {
+		User user = getUser(idu);
+		user.addCard(card);
+		uRepository.save(user);
 	}
 }

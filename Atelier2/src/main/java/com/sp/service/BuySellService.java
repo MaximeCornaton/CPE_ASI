@@ -26,15 +26,13 @@ public class BuySellService{
 			return false;
 		}
 		else {
-			uService.buyCard(card);
+			//Il faut aussi que la carte fasse du boulot de son coté
+			uService.buyCard(card,idu);
 			return true;
-		}
-		
-		return false;
-		
+		}		
 	}
 	
 	public void sellCard(int idc) {
-		uService.sellCard(card);
+		uService.sellCard(idc);
 	}
 }
