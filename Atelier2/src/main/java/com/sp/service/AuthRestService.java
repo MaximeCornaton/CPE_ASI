@@ -3,7 +3,6 @@ package com.sp.service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.sp.model.User;
-import com.sp.service.UserService;
 
 public class AuthRestService{
 	
