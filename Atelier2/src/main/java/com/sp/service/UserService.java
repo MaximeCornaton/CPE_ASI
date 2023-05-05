@@ -49,4 +49,10 @@ public class UserService {
 		user.addCard(card);
 		uRepository.save(user);
 	}
+	
+	public void sellCard(Card card, int idu) {
+		User user = getUser(idu);
+		user.delCard(card);
+		uRepository.save(user);
+	}
 }

@@ -27,12 +27,14 @@ public class BuySellService{
 		}
 		else {
 			//Il faut aussi que la carte fasse du boulot de son coté
+			
 			uService.buyCard(card,idu);
 			return true;
 		}		
 	}
 	
-	public void sellCard(int idc) {
-		uService.sellCard(idc);
+	public void sellCard(int idc, int idu) {
+		Card card = cService.getCard(idc);
+		uService.sellCard(card, idc);
 	}
 }

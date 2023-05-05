@@ -50,6 +50,10 @@ public class User {
 	public void addCard(Card card) {
 		this.cardList.add(card);
 	}
+	
+	public void delCard(Card card) {
+		this.cardList.remove(card);
+	}
 	/**
 	 * @return the id
 	 */

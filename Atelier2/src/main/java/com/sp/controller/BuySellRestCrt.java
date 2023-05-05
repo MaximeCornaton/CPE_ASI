@@ -21,7 +21,7 @@
 	  
 	  @RequestMapping(method=RequestMethod.POST, value="/sell")
 	  public void sellCard(@RequestBody int idc, int idu) {
-		  bsService.sellCard(idc);
+		  bsService.sellCard(idc, idu);
 	  }
 	  
   }
