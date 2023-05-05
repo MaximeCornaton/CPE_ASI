@@ -23,14 +23,22 @@
             <div class="column"></div>
             <div class="column">
                 <form class="ui form">
-                    <h3 class="ui dividing header">Connectez-vous</h3>
+                    <h3 class="ui dividing header">Inscrivez-vous</h3>
+                    <div class="field">
+                        <label>Nom</label>
+                        <input class="nom" type="text" name="name" placeholder="Nom">
+                    </div>
                     <div class="field">
                         <label>Surnom</label>
-                        <input class="name" type="text" name="first-name" placeholder="Surnom">
+                        <input class="name" type="text" name="surname" placeholder="Surnom">
                     </div>
                     <div class="field">
                         <label>Mot de passe</label>
-                        <input class="passwd" type="password" name="last-name" placeholder="Mot de passe" >
+                        <input class="passwd2`" type="text" name="passwd" placeholder="Mot de passe">
+                    </div>
+                    <div class="field">
+                        <label>Retapez votre mot de passe</label>
+                        <input class="passwd" type="password" name="passwd2" placeholder="Retapez votre mot de passe" >
                     </div>
                     <!-- <div class="field">
                         <div class="ui checkbox field">
@@ -38,7 +46,7 @@
                             <label>Make my profile visible</label>
                         </div>
                     </div> -->
-                    <button class="ui button" type="button" onclick="connect()" >Connexion</button>
+                    <button class="ui button" type="button" onclick="register()" >Inscription</button>
                 </form>
             </div>
         </div>

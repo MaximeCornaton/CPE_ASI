@@ -7,7 +7,7 @@ function connect(){
 
         },
         body: JSON.stringify({
-            "name": document.getElementsByClassName("name").value,
+            "surname": document.getElementsByClassName("surname").value,
             "password": document.getElementsByClassName("passwd").value
         })
     })  .then(data => data.json())
