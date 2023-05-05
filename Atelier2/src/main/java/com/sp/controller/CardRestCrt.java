@@ -26,7 +26,7 @@ public class CardRestCrt {
 	 */
 	@RequestMapping(method=RequestMethod.GET,value="/getcard/{id}")
 	public Optional<Card> getCard(@PathVariable int id) {
-		return CardService.getCard(id);
+		return Optional.ofNullable(CardService.getCard(id));
 	}
 	
 	/**

@@ -17,22 +17,17 @@ public class AuthRestCrt {
 	@Autowired
 	AuthRestService authRestService;
 	
-	@RequestMapping("/login")
-	public String sayHelloLogin() {
-		return "Hello login";
-	}
-	
 	/**
-	 * 
+	 * Vérfifier le cas où l'authentification n'est pas réussie
 	 * @param user
 	 * @return "ok" if a user with the passwd communicated has been found, else, not ok
 	 */
-	@RequestMapping(method=RequestMethod.POST, value="/addUser")
-	public String verifLogin(@RequestBody User user) {
+	@RequestMapping(method=RequestMethod.POST, value="/login")
+	public User verifLogin(@RequestBody User user) {
 		if (authRestService.getLogs(user.getName(), user.getPassword())) {
-			return "ok";
+			return user;
 		}else {
-			return "not ok";
+			return null;
 		}
 	}
 }
