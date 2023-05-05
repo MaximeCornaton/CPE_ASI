@@ -37,7 +37,8 @@ public class Card {
 	private User user;
 	
 
-	
+
+
 	public Card(String name,String description,String imgUrl, Family family, Affinity affinity, int hp, int energy, int attack, int defence, int prix) {
 		this.name = name;
 		this.description = description;
@@ -230,6 +231,22 @@ public class Card {
 	 */
 	public void setPrice(int price) {
 		this.price = price;
+	}
+	
+	/**
+	 * 
+	 * @return The owner (user) of the card
+	 */
+	public User getUser() {
+		return user;
+	}
+
+	/**
+	 * 
+	 * @param The new owner (user) of the card
+	 */
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }
