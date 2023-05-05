@@ -2,7 +2,7 @@ package com.sp.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,11 +23,11 @@ public class AuthRestCrt {
 	 * @return "ok" if a user with the passwd communicated has been found, else, not ok
 	 */
 	@RequestMapping(method=RequestMethod.POST, value="/login")
-	public User verifLogin(@RequestBody User user) {
+	public int verifLogin(@RequestBody User user) {
 		if (authRestService.getLogs(user.getName(), user.getPassword())) {
-			return user;
+			return user.getId();
 		}else {
-			return null;
+			return -1;
 		}
 	}
 }
