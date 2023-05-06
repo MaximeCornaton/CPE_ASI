@@ -29,8 +29,8 @@ function connect(){
 
     function register(){
 
-        let mdp1 = document.getElementById("passwd").value;
-        let mdp2 = document.getElementById("passwd2").value;
+        let mdp1 = document.getElementsByClassName("passwd")[0].value;
+        let mdp2 = document.getElementsByClassName("passwd2")[0].value;
         
         if (mdp1 == mdp2){
 			console.log(mdp1,mdp1);
@@ -41,9 +41,9 @@ function connect(){
                 'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    "name": document.getElementsByClassName("name"),
-                    "surname": document.getElementsByClassName("surname"),
-                    "password": document.getElementsByClassName("passwd"),
+                    "name": document.getElementsByClassName("name")[0].value,
+                    "surname": document.getElementsByClassName("surname")[0].value,
+                    "password": document.getElementsByClassName("passwd")[0].value,
                     "money": 5999
                 })
 		    })

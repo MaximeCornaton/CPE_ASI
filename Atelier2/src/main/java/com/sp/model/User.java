@@ -40,7 +40,7 @@ public class User {
 	public User() {
 		
 	}
-	
+		
 	public Set<Card> getCardList(){
 		Set<Card> ret = null;
 		ret.addAll(this.cardList);

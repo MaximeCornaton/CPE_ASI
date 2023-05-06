@@ -23,7 +23,7 @@ public class UserRestCrt {
 	private UserService uService;
 	
 	@RequestMapping(value = {"/register"}, method = RequestMethod.POST)
-	public void addUser(@RequestBody  User user) {
+	public void addUser(@RequestBody User user) {
 		uService.addUser(user);
 		
 	}}
