@@ -12,19 +12,18 @@ public class AuthRestService{
 	@Autowired 
 	UserService userService;
 	
-	public boolean getLogs(String name, String psswd) throws FonctionalException {
-		boolean res;
-		User usr = userService.getUser(name);
+	public User getLogs(String surname, String psswd) throws FonctionalException {
+		User usr = userService.getUser(surname);
+		System.out.println(usr);
 		if(usr == null){
 			throw new FonctionalException("User inconnu");
 		}
 		if (usr.getPassword().equals(psswd)) {
-			res = true;
+			return usr;
 		}else {
 			throw new FonctionalException("MDP incorrect");
 			
-		}
-		return res; 
+		} 
 		
 	}
 	
