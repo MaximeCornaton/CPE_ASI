@@ -30,7 +30,7 @@ function connect(){
     function register(){
 
         let mdp1 = document.getElementsByClassName("passwd")[0].value;
-        let mdp2 = document.getElementsByClassName("passwd2")[0].value;
+        let mdp2 = document.getElementsByClassName("passwd2")[0 ].value;
         
         if (mdp1 == mdp2){
 			console.log(mdp1,mdp1);
