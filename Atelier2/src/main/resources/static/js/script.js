@@ -21,7 +21,7 @@ function connect(){
         }
         })
         .catch((err) => {
-            console.log("err");
+            console.log(err);
             
         })
         
@@ -46,7 +46,7 @@ function connect(){
                     "password": document.getElementsByClassName("passwd"),
                     "money": 5999
                 })
-		    })	.then(data => data.json())
+		    })
 		    	.then(data => {
 			        console.log(data);
 			        localStorage.setItem("id", data);
