@@ -26,4 +26,7 @@ public class UserRestCrt {
 	public void addUser(@RequestBody User user) {
 		uService.addUser(user);
 		
-	}}
+	}
+	
+}
+
