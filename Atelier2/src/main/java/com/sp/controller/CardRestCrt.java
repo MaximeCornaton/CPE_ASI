@@ -24,7 +24,7 @@ public class CardRestCrt {
 	 * @param id
 	 * @return la carte si elle existe sinon null;
 	 */
-	@RequestMapping(method=RequestMethod.GET,value="/getcard/{id}")
+	@RequestMapping(method=RequestMethod.GET,value="/card/{id}")
 	public Optional<Card> getCard(@PathVariable int id) {
 		return Optional.ofNullable(CardService.getCard(id));
 	}
@@ -33,7 +33,7 @@ public class CardRestCrt {
 	 * 
 	 * @return les cartes existantes
 	 */
-	@RequestMapping(method=RequestMethod.GET,value="/getcards")
+	@RequestMapping(method=RequestMethod.GET,value="/cards")
 	public Set<Card> getCards() {
 		return CardService.getCards();
 	}
