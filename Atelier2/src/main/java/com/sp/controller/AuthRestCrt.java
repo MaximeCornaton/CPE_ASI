@@ -28,6 +28,7 @@ public class AuthRestCrt {
 	public int verifLogin(@RequestBody User user) {
 		try {
 			authRestService.getLogs(user.getName(), user.getPassword());
+			System.out.println(user.getId());
 			return user.getId();
 		} catch (FonctionalException e) {
 			 e.printStackTrace(); 
