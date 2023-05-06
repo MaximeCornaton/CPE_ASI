@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Service;
 
 @Service
+@SpringBootApplication
 public class SpAppSellBuy {
 	
 	public static void main(String[] args) {

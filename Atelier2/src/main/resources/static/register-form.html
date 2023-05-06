@@ -26,26 +26,26 @@
                     <h3 class="ui dividing header">Inscrivez-vous</h3>
                     <div class="field">
                         <label>Nom</label>
-                        <input class="nom" type="text" name="name" placeholder="Nom">
+                        <input class="nom" type="text" name="name" placeholder="Nom" required>
                     </div>
                     <div class="field">
                         <label>Surnom</label>
-                        <input class="name" type="text" name="surname" placeholder="Surnom">
+                        <input class="name" type="text" name="surname" placeholder="Surnom" required>
                     </div>
                     <div class="field">
-                        <label>Mot de passe</label>
-                        <input class="passwd2`" type="text" name="passwd" placeholder="Mot de passe">
+                        <label for="passwd">Mot de passe</label>
+                        <input id="passwd" type="password" name="mdp" placeholder="Mot de passe" onclick='javascript:this.value = ""' required>
                     </div>
                     <div class="field">
-                        <label>Retapez votre mot de passe</label>
-                        <input class="passwd" type="password" name="passwd2" placeholder="Retapez votre mot de passe" >
+                        <label for="passwd2">Retapez votre mot de passe</label>
+                        <input id="passwd2" type="password" name="mdp2" placeholder="Retapez votre mot de passe" onclick='javascript:this.value = ""' required>
                     </div>
-                    <!-- <div class="field">
+                    <div class="field">
                         <div class="ui checkbox field">
                             <input type="checkbox" name="pvisible">
-                            <label>Make my profile visible</label>
+                            <label>Afficher mon mot de passe</label>
                         </div>
-                    </div> -->
+                    </div>
                     <button class="ui button" type="button" onclick="register()" >Inscription</button>
                 </form>
             </div>
