@@ -27,7 +27,7 @@ public class AuthRestCrt {
 	@RequestMapping(method=RequestMethod.POST, value="/login")
 	public int verifLogin(@RequestBody User user) {
 		try {
-			authRestService.getLogs(user.getName(), user.getPassword());
+			authRestService.getLogs(user.getSurname(), user.getPassword());
 			System.out.println(user.getId());
 			return user.getId();
 		} catch (FonctionalException e) {

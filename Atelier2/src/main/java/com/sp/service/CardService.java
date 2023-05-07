@@ -3,6 +3,8 @@ package com.sp.service;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,8 +37,11 @@ public class CardService {
 	 * @return les cartes
 	 */
 	public Set<Card> getCards() {
-		return (Set<Card>) cRepo.findAll();
+	    Iterable<Card> iterableCards = cRepo.findAll();
+	    Set<Card> cards = StreamSupport.stream(iterableCards.spliterator(), false).collect(Collectors.toSet());
+	    return cards;
 	}
+
 	
 	/**
 	 * 
@@ -65,11 +70,11 @@ public class CardService {
 	 * 
 	 * @param card 
 	 */
-	/*
-	 * public void addCard(Card card) {
-	 * 
-	 * }
-	 */
+	  public void addCard(Card c) {
+		  System.out.print(c);
+		  cRepo.save(c);
+	  }
+	 
 	
 	
 	

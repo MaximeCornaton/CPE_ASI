@@ -5,6 +5,7 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,17 +26,24 @@ public class CardRestCrt {
 	 * @return la carte si elle existe sinon null;
 	 */
 	@RequestMapping(method=RequestMethod.GET,value="/card/{id}")
-	public Optional<Card> getCard(@PathVariable int id) {
-		return Optional.ofNullable(CardService.getCard(id));
+	public Card getCard(@PathVariable int id) {
+		return CardService.getCard(id);
 	}
 	
 	/**
 	 * 
+	 * @return 
 	 * @return les cartes existantes
 	 */
 	@RequestMapping(method=RequestMethod.GET,value="/cards")
 	public Set<Card> getCards() {
+		System.out.println(CardService.getCards());
 		return CardService.getCards();
+	}
+	
+	@RequestMapping(method=RequestMethod.POST,value="/cards")
+	public void addCard(@RequestBody Card c) {
+		CardService.addCard(c);
 	}
 	
 	/*

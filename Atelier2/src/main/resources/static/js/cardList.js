@@ -39,24 +39,44 @@ let cardList = [
     price: 250,
   },
 ];
-let template = document.querySelector("#row");
 
-for (const card of cardList) {
-  let clone = document.importNode(template.content, true);
+fetch("/cards", {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+  },
+})
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    cardList = cardList.concat(data);
+    showCard(cardList);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
-  newContent = clone.firstElementChild.innerHTML
-    .replace(/{{family_src}}/g, card.family_src)
-    .replace(/{{family_name}}/g, card.family_name)
-    .replace(/{{img_src}}/g, card.img_src)
-    .replace(/{{name}}/g, card.name)
-    .replace(/{{description}}/g, card.description)
-    .replace(/{{hp}}/g, card.hp)
-    .replace(/{{energy}}/g, card.energy)
-    .replace(/{{attack}}/g, card.attack)
-    .replace(/{{defense}}/g, card.defense)
-    .replace(/{{price}}/g, card.price);
-  clone.firstElementChild.innerHTML = newContent;
+function showCard(array) {
+  let template = document.querySelector("#row");
 
-  let cardContainer = document.querySelector("#tableContent");
-  cardContainer.appendChild(clone);
+  for (const card of array) {
+    let clone = document.importNode(template.content, true);
+
+    newContent = clone.firstElementChild.innerHTML
+      .replace(/{{family_src}}/g, card.family_src)
+      .replace(/{{family_name}}/g, card.family_name)
+      .replace(/{{img_src}}/g, card.img_src)
+      .replace(/{{name}}/g, card.name)
+      .replace(/{{description}}/g, card.description)
+      .replace(/{{hp}}/g, card.hp)
+      .replace(/{{energy}}/g, card.energy)
+      .replace(/{{attack}}/g, card.attack)
+      .replace(/{{defense}}/g, card.defense)
+      .replace(/{{price}}/g, card.price);
+    clone.firstElementChild.innerHTML = newContent;
+
+    let cardContainer = document.querySelector("#tableContent");
+    cardContainer.appendChild(clone);
+  }
 }
