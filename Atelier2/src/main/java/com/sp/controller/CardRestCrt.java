@@ -41,6 +41,10 @@ public class CardRestCrt {
 		return CardService.getCards();
 	}
 	
+	/**
+	 * 
+	 * @param c
+	 */
 	@RequestMapping(method=RequestMethod.POST,value="/cards")
 	public void addCard(@RequestBody Card c) {
 		CardService.addCard(c);
