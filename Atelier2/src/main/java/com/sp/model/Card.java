@@ -35,8 +35,8 @@ public class Card {
 	
 	@ManyToOne
 	@JoinTable( name="TJ_USER_CARD",
-				joinColumns = @JoinColumn( name = "idCard"),
-				inverseJoinColumns = @JoinColumn(name="idUser"))
+	            joinColumns = @JoinColumn( name = "idCard"),
+	            inverseJoinColumns = @JoinColumn(name="idUser"))
 	private User user;
 	
 

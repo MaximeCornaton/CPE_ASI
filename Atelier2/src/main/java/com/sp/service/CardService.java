@@ -79,6 +79,9 @@ public class CardService {
 		cRepo.saveAll(cards);
 	}
 	  
+	public Set<Card> getCardBuyable(){
+		return cRepo.getCardBuyable();
+	}
 	  
 	 
 	
