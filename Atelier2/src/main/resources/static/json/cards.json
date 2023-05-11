@@ -128,6 +128,167 @@
         "attack": 180,
         "defence": 60,
         "price": 240
+      },{
+        "family": "DC",
+        "imgUrl": "https://example.com/superwoman.jpg",
+        "name": "SUPERWOMAN",
+        "description": "Kara Zor-El, originaire de Krypton, a des pouvoirs similaires à ceux de Superman. En tant que Superwoman, elle utilise sa force, sa vitesse et sa vision thermique pour protéger la Terre des menaces extraterrestres.",
+        "hp": 180,
+        "energy": 120,
+        "attack": 110,
+        "defence": 100,
+        "price": 190
+      },
+      {
+        "family": "Marvel",
+        "imgUrl": "https://example.com/doctorsrange.jpg",
+        "name": "DOCTOR STRANGE",
+        "description": "Stephen Strange, ancien neurochirurgien, devient le Sorcier Suprême après avoir découvert les arts mystiques. Le Doctor Strange utilise la magie et les artefacts mystiques pour défendre la réalité contre les forces maléfiques.",
+        "hp": 160,
+        "energy": 200,
+        "attack": 90,
+        "defence": 80,
+        "price": 180
+      },
+      {
+        "family": "DC",
+        "imgUrl": "https://example.com/nightwing.jpg",
+        "name": "NIGHTWING",
+        "description": "Dick Grayson, l'ancien acrobate de cirque et premier Robin, devient Nightwing, un héros indépendant. Il utilise ses compétences acrobatiques, son intelligence et ses gadgets pour lutter contre le crime dans Gotham City.",
+        "hp": 140,
+        "energy": 100,
+        "attack": 120,
+        "defence": 100,
+        "price": 150
+      },{
+        "family": "Marvel",
+        "imgUrl": "https://example.com/blackwidow.jpg",
+        "name": "BLACK WIDOW",
+        "description": "Natasha Romanoff, une espionne hautement qualifiée, est connue sous le nom de Black Widow. Elle utilise ses compétences en arts martiaux, son agilité et ses gadgets pour combattre les menaces et protéger le monde.",
+        "hp": 120,
+        "energy": 100,
+        "attack": 90,
+        "defence": 70,
+        "price": 140
+      },
+      {
+        "family": "DC",
+        "imgUrl": "https://example.com/greenarrow.jpg",
+        "name": "GREEN ARROW",
+        "description": "Oliver Queen, un archer talentueux, devient Green Arrow pour lutter contre l'injustice et protéger Star City. Il utilise son arc, ses flèches spéciales et ses compétences en combat pour défendre les innocents.",
+        "hp": 100,
+        "energy": 80,
+        "attack": 110,
+        "defence": 60,
+        "price": 120
+      },
+      {
+        "family": "Marvel",
+        "imgUrl": "https://example.com/captainmarvel.jpg",
+        "name": "CAPTAIN MARVEL",
+        "description": "Carol Danvers, une pilote de l'armée, acquiert des pouvoirs cosmiques et devient Captain Marvel. Elle possède une force surhumaine, la capacité de voler et de projeter des décharges d'énergie.",
+        "hp": 180,
+        "energy": 150,
+        "attack": 120,
+        "defence": 100,
+        "price": 200
+      },{
+        "family": "DC",
+        "imgUrl": "https://example.com/martianmanhunter.jpg",
+        "name": "MARTIAN MANHUNTER",
+        "description": "J'onn J'onzz, un martien doté de pouvoirs télépathiques et de métamorphose, se bat pour la justice sous le nom de Martian Manhunter. Il utilise ses capacités extraterrestres pour protéger la Terre des menaces.",
+        "hp": 200,
+        "energy": 150,
+        "attack": 100,
+        "defence": 120,
+        "price": 180
+      },
+      {
+        "family": "Marvel",
+        "imgUrl": "https://example.com/scarletwitch.jpg",
+        "name": "SCARLET WITCH",
+        "description": "Wanda Maximoff, une sorcière puissante, est connue sous le nom de Scarlet Witch. Elle manipule la réalité et utilise la magie du chaos pour combattre les forces maléfiques et protéger l'équilibre cosmique.",
+        "hp": 140,
+        "energy": 180,
+        "attack": 110,
+        "defence": 90,
+        "price": 160
+      },
+      {
+        "family": "DC",
+        "imgUrl": "https://example.com/doctorfate.jpg",
+        "name": "DOCTOR FATE",
+        "description": "Kent Nelson, l'héritier d'un pouvoir mystique, devient Doctor Fate. Il porte le Casque du Destin, qui lui confère des pouvoirs magiques et la sagesse des anciens. Il protège le monde des menaces surnaturelles.",
+        "hp": 160,
+        "energy": 200,
+        "attack": 100,
+        "defence": 100,
+        "price": 170
+      },{
+        "family": "Marvel",
+        "imgUrl": "https://example.com/gambit.jpg",
+        "name": "GAMBIT",
+        "description": "Remy LeBeau, également connu sous le nom de Gambit, est un mutant capable de charger les objets avec de l'énergie cinétique explosive. Il utilise ses compétences en combat et ses cartes chargées pour combattre les ennemis.",
+        "hp": 140,
+        "energy": 120,
+        "attack": 130,
+        "defence": 70,
+        "price": 150
+      },
+      {
+        "family": "DC",
+        "imgUrl": "https://example.com/zatanna.jpg",
+        "name": "ZATANNA",
+        "description": "Zatanna Zatara est une magicienne talentueuse qui utilise la sorcellerie et la magie du langage pour lutter contre les forces obscures. Elle incante des sorts en récitant des mots à l'envers.",
+        "hp": 120,
+        "energy": 160,
+        "attack": 90,
+        "defence": 80,
+        "price": 140
+      },
+      {
+        "family": "Marvel",
+        "imgUrl": "https://example.com/antman.jpg",
+        "name": "ANT-MAN",
+        "description": "Scott Lang, grâce à un costume spécial, peut réduire sa taille et augmenter sa force. En tant qu'Ant-Man, il utilise sa capacité à communiquer avec les insectes et sa maîtrise de la technologie pour combattre le crime.",
+        "hp": 110,
+        "energy": 100,
+        "attack": 100,
+        "defence": 90,
+        "price": 130
+      },  {
+        "family": "DC",
+        "imgUrl": "https://example.com/constantine.jpg",
+        "name": "CONSTANTINE",
+        "description": "John Constantine est un sorcier détective spécialisé dans les affaires surnaturelles. Il utilise ses connaissances en magie noire et son intelligence pour affronter les forces démoniaques et protéger l'équilibre entre le bien et le mal.",
+        "hp": 130,
+        "energy": 160,
+        "attack": 100,
+        "defence": 80,
+        "price": 150
+      },
+      {
+        "family": "Marvel",
+        "imgUrl": "https://example.com/storm.jpg",
+        "name": "STORM",
+        "description": "Ororo Munroe, surnommée Storm, a le pouvoir de contrôler les éléments météorologiques. En tant que membre des X-Men, elle utilise ses capacités de manipulation du climat pour défendre les mutants et la paix.",
+        "hp": 140,
+        "energy": 180,
+        "attack": 110,
+        "defence": 100,
+        "price": 160
+      },
+      {
+        "family": "DC",
+        "imgUrl": "https://example.com/redhood.jpg",
+        "name": "RED HOOD",
+        "description": "Jason Todd, anciennement le deuxième Robin, devient le Red Hood, un justicier impitoyable. Il est un expert en combat armé et utilise des armes à feu et des gadgets pour éliminer les criminels.",
+        "hp": 150,
+        "energy": 100,
+        "attack": 120,
+        "defence": 90,
+        "price": 140
       }
+
 ]
   

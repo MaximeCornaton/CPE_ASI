@@ -25,7 +25,7 @@ public class CardService {
 	 * @return la carte si elle existe sinon null;
 	 */
 	public Card getCard(int id) {
-		Optional<Card> cOpt = cRepo.findById(id);
+		Optional<Card> cOpt = cRepo.findByidCard(id);
 		if(cOpt.isPresent()) {
 			return cOpt.get();
 		}else {
