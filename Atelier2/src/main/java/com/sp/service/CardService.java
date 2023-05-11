@@ -1,7 +1,10 @@
 package com.sp.service;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.ArrayList;
+
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -41,6 +44,21 @@ public class CardService {
 	    Iterable<Card> iterableCards = cRepo.findAll();
 	    Set<Card> cards = StreamSupport.stream(iterableCards.spliterator(), false).collect(Collectors.toSet());
 	    return cards;
+	}
+	
+	/**
+	 * 
+	 * @return a random list of 5 cards
+	 */
+	public Set<Card> get5cards(){
+		
+	    Set<Card> cards = this.getCardBuyable();
+	    List<Card> shuffledCards = new ArrayList<>(cards);
+	    Collections.shuffle(shuffledCards);
+	    
+	    return shuffledCards.stream().limit(5).collect(Collectors.toSet());
+	
+
 	}
 
 	
