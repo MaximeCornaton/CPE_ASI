@@ -3,6 +3,8 @@ Barriquand Valentin
 Cornaton Maxime
 Lajudie Rodolphe
 
+Fichier Atelier2
+
 * Elements réalisés : 
 - Inscription : création d'un nouvel user avec 5 cartes aléatoire crées au lancement de l'application
 - Connexion : contrôle des données du client pour vérifié la bonne connexion et que l'utilisateur éxiste en base de données
