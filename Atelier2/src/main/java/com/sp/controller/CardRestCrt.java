@@ -49,6 +49,10 @@ public class CardRestCrt {
 		CardService.addCard(c);
 	}
 	
+	@RequestMapping(method=RequestMethod.GET,value="/cardsToBuy")
+	public Set<Card> getCardsToBuy() {
+		return CardService.getCards();
+	}
 	/*
 	 * private static boolean isInteger(String s) { boolean isValid = true; try{
 	 * Integer.parseInt(s); } catch(NumberFormatException nfe){ isValid = false; }

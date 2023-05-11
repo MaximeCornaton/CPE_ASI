@@ -36,7 +36,7 @@ function register(){
     let mdp2 = document.getElementsByClassName("passwd2")[0].value;
     
     if (mdp1 == mdp2){
-		console.log(mdp1,mdp1);
+		console.log(mdp1,mdp2);
 		
 		fetch('/register', {
         method: 'POST',
@@ -73,7 +73,7 @@ function sell($idc){
         },
         body: JSON.stringify({
             "idc": $idc,
-            "icu": localStorage.getItem("idu")
+            "idu": localStorage.getItem("idu") //Avant icu
         })
     })
 }
