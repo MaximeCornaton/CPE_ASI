@@ -3,6 +3,7 @@
  */
 package com.sp.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -42,9 +43,10 @@ public class User {
 	}
 		
 	public Set<Card> getCardList(){
-		Set<Card> ret = null;
-		ret.addAll(this.cardList);
-		return ret;
+		if(cardList == null) {
+			cardList = new HashSet<Card>();
+		}
+		return cardList;
 	}
 	
 	public void addCard(Card card) {

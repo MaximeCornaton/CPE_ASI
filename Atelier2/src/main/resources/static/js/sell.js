@@ -40,23 +40,49 @@ let cardList = [
   },
 ];
 
-fetch("/cards", {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json",
-  },
-})
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    cardList = cardList.concat(data);
-    showCard(cardList);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+$(document).ready(function () {
+  if (!localStorage.getItem("id")) {
+    window.location.href = "/login-form.html";
+  } else {
+    setUpDocument();
+    getCardList();
+  }
+});
 
+function setUpDocument() {
+  fetch("/" + "user/" + localStorage.getItem("id"), {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      document.getElementById("userNameId").innerHTML = data.name;
+      document.getElementById("userMoney").innerHTML = data.money;
+    });
+}
+
+function getCardList() {
+  fetch("/" + localStorage.getItem("id") + "/cards", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      return response.text();
+    })
+    .then((data) => {
+      cardList = cardList.concat(data ? JSON.parse(data) : []);
+      showCard(cardList);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
 function showCard(array) {
   let template = document.querySelector("#row");
 
@@ -64,6 +90,7 @@ function showCard(array) {
     let clone = document.importNode(template.content, true);
 
     newContent = clone.firstElementChild.innerHTML
+      .replace(/{{id}}/g, card.id)
       .replace(/{{family_src}}/g, card.family_src)
       .replace(/{{family_name}}/g, card.family_name)
       .replace(/{{img_src}}/g, card.img_src)

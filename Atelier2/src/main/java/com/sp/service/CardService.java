@@ -71,9 +71,10 @@ public class CardService {
 	 * @param card 
 	 */
 	  public void addCard(Card c) {
-		  System.out.print(c);
 		  cRepo.save(c);
 	  }
+	  
+	  
 	 
 	
 	

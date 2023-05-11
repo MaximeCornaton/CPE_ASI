@@ -2,6 +2,7 @@ package com.sp.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import com.sp.model.Card;
 import com.sp.model.User;
@@ -61,5 +62,10 @@ public class UserService {
 		User user = getUser(idu);
 		user.delCard(card);
 		uRepository.save(user);
+	}
+	
+	public Set<Card> getCards(int id){
+		User user = getUser(id);
+		return user.getCardList();
 	}
 }

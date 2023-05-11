@@ -4,6 +4,7 @@
 package com.sp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,6 +27,16 @@ public class UserRestCrt {
 	public void addUser(@RequestBody User user) {
 		uService.addUser(user);
 		
+	}
+	
+	@RequestMapping(value = {"/{id}/cards"}, method = RequestMethod.GET)
+	public void getCards(@PathVariable int id) {
+		uService.getCards(id);
+	}
+	
+	@RequestMapping(value = {"/user/{id}"}, method = RequestMethod.GET)
+	public User getUser(@PathVariable int id) {
+		return uService.getUser(id);
 	}
 	
 }

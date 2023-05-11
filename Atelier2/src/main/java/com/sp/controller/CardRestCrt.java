@@ -37,7 +37,6 @@ public class CardRestCrt {
 	 */
 	@RequestMapping(method=RequestMethod.GET,value="/cards")
 	public Set<Card> getCards() {
-		System.out.println(CardService.getCards());
 		return CardService.getCards();
 	}
 	
