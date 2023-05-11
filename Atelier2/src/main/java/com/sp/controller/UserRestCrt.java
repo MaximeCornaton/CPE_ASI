@@ -3,6 +3,8 @@
  */
 package com.sp.controller;
 
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sp.model.Card;
 import com.sp.model.User;
 import com.sp.service.UserService;
 
@@ -30,8 +33,8 @@ public class UserRestCrt {
 	}
 	
 	@RequestMapping(value = {"/{id}/cards"}, method = RequestMethod.GET)
-	public void getCards(@PathVariable int id) {
-		uService.getCards(id);
+	public Set<Card> getCards(@PathVariable int id) {
+		return uService.getCards(id);
 	}
 	
 	@RequestMapping(value = {"/user/{id}"}, method = RequestMethod.GET)

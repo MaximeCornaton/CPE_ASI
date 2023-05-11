@@ -29,8 +29,8 @@ public class DataInitializer implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
-        try {
-            List<Card> cards = Arrays.asList(objectMapper.readValue(new File(getClass().getClassLoader().getResource("static/json/cards.json").getPath()), Card[].class));
+        try {//getClass().getClassLoader().getResource("static/json/cards.json").getPath()
+            List<Card> cards = Arrays.asList(objectMapper.readValue(new File("/Users/valentinb/Documents/CPE/Majeur CLBD/ASI/CPE_ASI/Atelier2/src/main/resources/static/json/cards.json"), Card[].class));
             cardService.saveAll(cards);
         } catch (IOException e) {
             e.printStackTrace();

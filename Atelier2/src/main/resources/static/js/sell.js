@@ -25,7 +25,7 @@ function setUpDocument() {
 
 function getCardList() {
   let cardList = []
-  fetch("/" + localStorage.getItem("id") + "/cards", {
+  fetch( "/" + localStorage.getItem("id") + "/cards", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
