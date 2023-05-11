@@ -36,6 +36,7 @@ function getCardList() {
     })
     .then(data => data.json())
     .then((data) => {
+      console.log(data);
       cardList = cardList.concat(data ? JSON.parse(data) : []);
       showCard(cardList);
     })
