@@ -30,6 +30,7 @@ public class DataInitializer implements CommandLineRunner {
 	public void run(String... args) throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
+        	//getClass().getClassLoader().getResource("static/json/cards.json").getPath()
             List<Card> cards = Arrays.asList(objectMapper.readValue(new File("/Users/valentinb/Documents/CPE/Majeur CLBD/ASI/CPE_ASI/Atelier2/src/main/resources/static/json/cards.json"), Card[].class));
             cardService.saveAll(cards);
         } catch (IOException e) {
