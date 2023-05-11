@@ -24,7 +24,8 @@ function setUpDocument() {
 }
 
 function getCardList() {
-  fetch("/" + localStorage.getItem("id") + "/cards", {
+  let cardList=[]
+  fetch("/cardsToBuy", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -88,8 +89,8 @@ function showFullCard(id){
       document.getElementById("cardDefenceId").innerHTML = card.defense;
       document.getElementById("cardPriceId").innerHTML = card.price;
       document.getElementById("cardImgId").src = card.img_src;
-      document.getElementById("sellButtonID").onclick = function() {
-        sell(card.id)
+      document.getElementById("buyButtonID").onclick = function() {
+        buy(card.id)
       };
       document.getElementById("card").style.display = "block";
     }
