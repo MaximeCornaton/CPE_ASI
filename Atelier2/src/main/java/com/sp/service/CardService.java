@@ -1,6 +1,7 @@
 package com.sp.service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -73,6 +74,10 @@ public class CardService {
 	  public void addCard(Card c) {
 		  cRepo.save(c);
 	  }
+
+	public void saveAll(List<Card> cards) {
+		cRepo.saveAll(cards);
+	}
 	  
 	  
 	 

@@ -1,0 +1,133 @@
+[
+    {
+      "family": "DC",
+      "imgUrl": "http://www.superherobroadband.com/app/themes/superhero/assets/img/superhero.gif",
+      "name": "SUPERMAN",
+      "description": "The origin story of Superman relates that he was born Kal-El on the planet Krypton, before being rocketed to Earth as an infant by his scientist father Jor-El, moments before Krypton's destruction. Discovered and adopted by a farm couple from Kansas, the child is raised as Clark Kent and imbued with a strong moral compass. Early in his childhood, he displays various superhuman abilities, which, upon reaching maturity, he resolves to use for the benefit of humanity through a 'Superman' identity.",
+      "hp": 500,
+      "energy": 100,
+      "attack": 50,
+      "defence": 50,
+      "price": 200
+    },
+    {
+      "family": "DC",
+      "imgUrl": "https://static.fnac-static.com/multimedia/Images/8F/8F/7D/66/6716815-1505-1540-1/tsp20171122191008/Lego-lgtob12b-lego-batman-movie-lampe-torche-batman.jpg",
+      "name": "BATMAN",
+      "description": "Bruce Wayne, alias Batman, est un héros de fiction appartenant à l'univers de DC. Créé par le dessinateur Bob Kane et le scénariste Bill Finger, il apparaît pour la première fois dans le comic book Detective Comics no 27 (date de couverture : mai 1939 mais la date réelle de parution est le 30 mars 1939) sous le nom de The Bat-Man. Bien que ce soit le succès de Superman qui ait amené sa création, il se détache de ce modèle puisqu'il n'a aucun pouvoir surhumain. Batman n'est qu'un simple humain qui a décidé de lutter contre le crime après avoir vu ses parents se faire abattre par un voleur dans une ruelle de Gotham City, la ville où se déroulent la plupart de ses aventures. Malgré sa réputation de héros solitaire, il sait s'entourer d'alliés, comme Robin, son majordome Alfred Pennyworth ou encore le commissaire de police James Gordon.",
+      "hp": 50,
+      "energy": 80,
+      "attack": 170,
+      "defence": 80,
+      "price": 100
+    },
+    {
+      "family": "Marvel",
+      "imgUrl": "https://static.hitek.fr/img/actualite/2017/06/27/i_deadpool-2.jpg",
+      "name": "DEAD POOL",
+      "description": "Le convoi d'Ajax est attaqué par Deadpool. Il commence par massacrer les gardes à l'intérieur d'une voiture, avant de s'en prendre au reste du convoi. Après une longue escarmouche, où il est contraint de n'utiliser que les douze balles qu'il lui reste, Deadpool capture Ajax (dont le véritable nom est Francis, ce que Deadpool ne cesse de lui rappeler). Après l'intervention de Colossus et Negasonic venus empêcher Deadpool de causer plus de dégâts et le rallier à la cause des X-Men, Ajax par vient à s'échapper en retirant le sabre de son épaule. Il apprend par la même occasion la véritable identité de Deadpool : Wade Wilson.",
+      "hp": 999999,
+      "energy": 100,
+      "attack": 15,
+      "defence": 15,
+      "price": 250
+      },
+      {
+        "family": "Marvel",
+        "imgUrl": "https://example.com/spiderman.jpg",
+        "name": "SPIDER-MAN",
+        "description": "Peter Parker, un lycéen mordu par une araignée radioactive, acquiert des pouvoirs extraordinaires. Sous le nom de Spider-Man, il protège New York contre les criminels.",
+        "hp": 150,
+        "energy": 80,
+        "attack": 120,
+        "defence": 60,
+        "price": 150
+      },
+      {
+        "family": "DC",
+        "imgUrl": "https://example.com/wonderwoman.jpg",
+        "name": "WONDER WOMAN",
+        "description": "Diana Prince, princesse des Amazones, possède une force surhumaine et des capacités de combat exceptionnelles. En tant que Wonder Woman, elle défend la justice et la paix.",
+        "hp": 200,
+        "energy": 100,
+        "attack": 90,
+        "defence": 80,
+        "price": 180
+      },
+      {
+        "family": "Marvel",
+        "imgUrl": "https://example.com/ironman.jpg",
+        "name": "IRON MAN",
+        "description": "Tony Stark, un génie de la technologie, construit une armure puissante qui lui confère une force et une protection surhumaines. En tant qu'Iron Man, il combat les menaces qui pèsent sur le monde.",
+        "hp": 180,
+        "energy": 150,
+        "attack": 100,
+        "defence": 120,
+        "price": 200
+      },  {
+        "family": "DC",
+        "imgUrl": "https://example.com/flash.jpg",
+        "name": "THE FLASH",
+        "description": "Barry Allen, frappé par la foudre lors d'une expérience scientifique, obtient une vitesse surhumaine. En tant que Flash, il utilise sa super-vitesse pour combattre le crime et sauver des vies.",
+        "hp": 120,
+        "energy": 200,
+        "attack": 80,
+        "defence": 50,
+        "price": 160
+      },
+      {
+        "family": "Marvel",
+        "imgUrl": "https://example.com/blackpanther.jpg",
+        "name": "BLACK PANTHER",
+        "description": "T'Challa, roi du Wakanda, est doté de super-pouvoirs grâce à l'ingestion d'une herbe spéciale. En tant que Black Panther, il utilise ses compétences de combat avancées et son costume en vibranium pour défendre son peuple.",
+        "hp": 180,
+        "energy": 120,
+        "attack": 110,
+        "defence": 100,
+        "price": 190
+      },
+      {
+        "family": "DC",
+        "imgUrl": "https://example.com/aquaman.jpg",
+        "name": "AQUAMAN",
+        "description": "Arthur Curry, le prince des Atlantes, possède une force surhumaine et la capacité de communiquer avec les créatures marines. En tant qu'Aquaman, il protège les océans et défend la paix entre les mondes terrestre et sous-marin.",
+        "hp": 220,
+        "energy": 90,
+        "attack": 70,
+        "defence": 150,
+        "price": 170
+      },{
+        "family": "Marvel",
+        "imgUrl": "https://example.com/thor.jpg",
+        "name": "THOR",
+        "description": "Thor, le dieu du tonnerre, possède une force et une endurance surhumaines ainsi que le pouvoir de contrôler la foudre. Il utilise son marteau magique Mjölnir pour protéger les neuf royaumes.",
+        "hp": 250,
+        "energy": 100,
+        "attack": 140,
+        "defence": 80,
+        "price": 220
+      },
+      {
+        "family": "DC",
+        "imgUrl": "https://example.com/greenlantern.jpg",
+        "name": "GREEN LANTERN",
+        "description": "Hal Jordan est choisi par le Green Lantern Corps et reçoit un anneau de pouvoir alimenté par la volonté. En tant que Green Lantern, il a la capacité de créer des objets solides avec son anneau et protège l'univers contre les menaces intergalactiques.",
+        "hp": 160,
+        "energy": 180,
+        "attack": 90,
+        "defence": 90,
+        "price": 200
+      },
+      {
+        "family": "Marvel",
+        "imgUrl": "https://example.com/hulk.jpg",
+        "name": "HULK",
+        "description": "Bruce Banner, exposé à une dose élevée de rayons gamma, se transforme en Hulk, une créature surpuissante et incontrôlable lorsqu'il est en colère. Hulk utilise sa force démesurée pour combattre les ennemis qui menacent l'humanité.",
+        "hp": 300,
+        "energy": 50,
+        "attack": 180,
+        "defence": 60,
+        "price": 240
+      }
+]
+  

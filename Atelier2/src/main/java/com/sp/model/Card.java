@@ -1,6 +1,8 @@
 package com.sp.model;
 
 import com.sp.model.User;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,6 +22,7 @@ public class Card {
 	@GeneratedValue
 	private int idCard; 
 	private String name;
+	@Column(length = 1024)
 	private String description;
 	private String imgUrl;
 	private Family family;

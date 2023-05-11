@@ -1,7 +1,7 @@
 package com.sp.model;
 
 public enum Family{
-	Tree("Happy Tree Family"), Ocean("Ocean lover"), Bird("Bird's friend");
+	Tree("Happy Tree Family"), Ocean("Ocean lover"), Bird("Bird's friend"), DC("DC Comics"), Marvel("Marvel");
 	
 	private String display_Family;
 	
