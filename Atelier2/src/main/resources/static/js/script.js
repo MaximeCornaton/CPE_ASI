@@ -8,7 +8,7 @@ function connect(){
         },
         body: JSON.stringify({
             "surname": document.getElementsByClassName("surname")[0].value,
-            "passwd": document.getElementsByClassName("passwd")[0].value
+            "password": document.getElementsByClassName("passwd")[0].value
         })
     })  .then(data => data.json())
         .then(data => {
@@ -16,9 +16,9 @@ function connect(){
                 alert("Mauvais identifiant ou mot de passe");
             }
             else{
-            console.log(data);
-            localStorage.setItem("id", data);
-            // window.location.href = "/home";
+	            console.log(data);
+	            localStorage.setItem("id", data);
+	            // window.location.href = "/home";
         }
         })
         .catch((err) => {
