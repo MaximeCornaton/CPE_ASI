@@ -1,6 +1,5 @@
 package com.sp.service;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -16,12 +15,16 @@ public class UserService {
 	@Autowired
 	UserRepository uRepository;
 	
+	@Autowired
+	CardService cServ;
+	
 	public UserService() {
 		
 	}
 	
 	public void addUser(User u) {
 		
+		u.setCardList(cServ.get5cards());
 		User createdUser = uRepository.save(u);
 		System.out.println(createdUser);
 	}

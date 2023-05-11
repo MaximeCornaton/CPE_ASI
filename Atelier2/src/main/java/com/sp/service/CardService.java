@@ -52,7 +52,7 @@ public class CardService {
 	 */
 	public Set<Card> get5cards(){
 		
-	    Set<Card> cards = this.getCardBuyable();
+	    Set<Card> cards = this.getCards();
 	    List<Card> shuffledCards = new ArrayList<>(cards);
 	    Collections.shuffle(shuffledCards);
 	    

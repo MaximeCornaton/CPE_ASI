@@ -42,6 +42,10 @@ public class User {
 		
 	}
 		
+	public void setCardList(Set<Card> cardList) {
+		this.cardList = cardList;
+	}
+
 	public Set<Card> getCardList(){
 		if(cardList == null) {
 			cardList = new HashSet<Card>();
