@@ -24,8 +24,7 @@ function setUpDocument() {
 }
 
 function getCardList() {
-  let cardList = [];
-  fetch("/cardsToBuy", {
+  fetch("/" + localStorage.getItem("id") + "/cards", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -42,7 +41,6 @@ function getCardList() {
       console.log(error);
     });
 }
-
 function showCard(array) {
   let template = document.querySelector("#row");
 
@@ -69,7 +67,6 @@ function showCard(array) {
 }
 
 function showFullCard(id){
-  let card;
   fetch("/cards/" + id, {
     method: "GET",
     headers: {
