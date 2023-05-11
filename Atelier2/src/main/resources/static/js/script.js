@@ -12,17 +12,19 @@ function connect(){
         })
     })  .then(data => data.json())
         .then(data => {
-            if (data == -1){
-                alert("Mauvais identifiant ou mot de passe");
-            }
-            else{
-	            console.log(data);
+			if(Number.isInteger(data)){
 	            localStorage.setItem("id", data);
-	            // window.location.href = "/home";
-        }
+	            console.log(data);
+	            window.location.href = "/card.html";
+           }
+           else{
+			   alert("Mauvais identifiant ou mot de passe");
+		   }
+   
         })
         .catch((err) => {
             console.log(err);
+            
             
         })
         
