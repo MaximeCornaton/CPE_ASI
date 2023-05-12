@@ -21,7 +21,8 @@ public class UserService {
 	
 	public void addUser(User u) {
 		
-		u.setCardList(cServ.get5cards());
+		//u.setCardList(cServ.get5cards());
+		// fonction a appeler depuis CardAPP pour ajouter l'id de cette user a certaines cartes 
 		User createdUser = uRepository.save(u);
 		System.out.println(createdUser);
 	}
@@ -52,16 +53,14 @@ public class UserService {
 		}
 	}
 	
-	public void buyCard(Card card, User user) {
-		user.addCard(card);
-	}
+	/*
+	 * public void buyCard(Card card, User user) { user.addCard(card); }
+	 * 
+	 * public void sellCard(Card card, User user) { user.delCard(card); }
+	 */
 	
-	public void sellCard(Card card, User user) {
-		user.delCard(card);
-	}
-	
-	public Set<Card> getCards(int id){
-		User user = getUser(id);
-		return user.getCardList();
-	}
+	/*
+	 * public Set<Card> getCards(int id){ User user = getUser(id); return
+	 * user.getCardList(); }
+	 */
 }

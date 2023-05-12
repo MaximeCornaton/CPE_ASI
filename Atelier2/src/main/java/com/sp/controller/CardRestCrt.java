@@ -3,6 +3,7 @@ package com.sp.controller;
 import java.util.Optional;
 import java.util.Set;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sp.model.Card;
+import com.sp.model.CardDTO;
 import com.sp.service.CardService;
 
 
@@ -26,8 +28,11 @@ public class CardRestCrt {
 	 * @return la carte si elle existe sinon null;
 	 */
 	@RequestMapping(method=RequestMethod.GET,value="/card/{id}")
-	public Card getCard(@PathVariable int id) {
-		return CardService.getCard(id);
+	public CardDTO getCard(@PathVariable int id) {
+		Card card = CardService.getCard(id);
+		CardDTO cardDto = new CardDTO();
+		BeanUtils.copyProperties(card, cardDto);
+		return cardDto;
 	}
 	
 	/**

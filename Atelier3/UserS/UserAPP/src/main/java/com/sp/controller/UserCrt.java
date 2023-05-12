@@ -28,11 +28,6 @@ public class UserCrt {
 		
 	}
 	
-	@RequestMapping(value = {"/{id}/cards"}, method = RequestMethod.GET)
-	public Set<Card> getCards(@PathVariable int id) {
-		return uService.getCards(id);
-	}
-	
 	@RequestMapping(value = {"/user/{id}"}, method = RequestMethod.GET)
 	public User getUser(@PathVariable int id) {
 		return uService.getUser(id);
