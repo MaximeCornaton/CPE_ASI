@@ -17,5 +17,7 @@ import com.sp.model.User;
 public interface UserRepository extends CrudRepository<User, Integer> {
 	
 	Optional<User> findBySurname(String surname);
+
+	Optional<User> findByIdUser(int id);
 	
 }

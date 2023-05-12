@@ -64,16 +64,3 @@ function register(){
 	}
 }
 
-function sell($idc){
-	fetch('/sell', {
-        method: 'POST',
-        headers: {  
-            'Content-Type': 'application/json'
-
-        },
-        body: JSON.stringify({
-            "idc": $idc,
-            "idu": localStorage.getItem("idu") //Avant icu
-        })
-    })
-}

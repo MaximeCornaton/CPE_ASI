@@ -29,16 +29,17 @@ public class BuySellService{
 		User user = uService.getUser(idu);
 		int price = card.getPrice();
 
-		if(price > uService.getUser(idu).getMoney()) {
+		if(price > user.getMoney()) {
 			return false;
 		}
 		else {
-			card.setUser(user);
-			uService.buyCard(card,idu);
+			if (user.getCardList().contains(card)) {
+				throw new RuntimeException("User already owns this card");
+			}
+			uService.buyCard(card,user);
 			user.setMoney(user.getMoney()-price);
 			
 			uService.updateUser(user);
-			cService.updateCard(card);
 			
 			return true;
 		}		
@@ -50,16 +51,12 @@ public class BuySellService{
 	 * @param idu
 	 */
 	public void sellCard(int idc, int idu) {
-		
 		User user = uService.getUser(idu);
 		Card card = cService.getCard(idc);
 		int price = card.getPrice();
-		
 		user.setMoney(user.getMoney()+price);
-		uService.sellCard(card, idc);
-		card.setUser(null);
+		uService.sellCard(card, user);
 		
-		cService.updateCard(card);
 		uService.updateUser(user);
 	}
 }

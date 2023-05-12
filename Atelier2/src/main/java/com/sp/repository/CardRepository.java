@@ -12,8 +12,10 @@ public interface CardRepository extends CrudRepository<Card, Integer>{
 
 	Optional<Card> findByidCard(int id);
 	
-	@Query(value = "SELECT * FROM T_CARD WHERE id NOT IN ( SELECT card_id FROM TJ_USER_CARD ) ", nativeQuery = true)
-	Set<Card> getCardBuyable();
+
+	
+	@Query("SELECT c FROM Card c WHERE c.idCard NOT IN (SELECT DISTINCT card.idCard FROM User u JOIN u.cardList card)")
+    Set<Card> getCardBuyable();
 	
 	/* public Card findbyId(int id); */
 	

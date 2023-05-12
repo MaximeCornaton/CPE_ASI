@@ -65,8 +65,8 @@
           </thead>
           <tbody id="tableContent">
             <template id="row">
-              <tr onclick="showFullCard({{id}})">
-                <td>
+              <tr>
+                <td id="{{id}}">
                   <img class="ui avatar image" src="{{img_src}}" />
                   <span>{{name}} </span>
                 </td>
@@ -78,7 +78,7 @@
                 <td>{{attack}}</td>
                 <td>{{price}}$</td>
                 <td>
-                  <div class="ui vertical animated button" tabindex="0">
+                  <div class="ui vertical animated button" tabindex="0" onclick="sell({{id}})">
                     <div class="hidden content">Sell</div>
                     <div class="visible content">
                       <i class="shop icon"></i>

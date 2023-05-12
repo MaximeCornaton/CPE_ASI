@@ -14,6 +14,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 /**
  * @author paulaubry
  *
@@ -29,6 +31,7 @@ public class User {
 	private String password;
 	private int money;
 	
+	@JsonManagedReference
 	@OneToMany
 	@JoinTable( name = "TJ_USER_CARD",
 				joinColumns = @JoinColumn(name = "idUser"),

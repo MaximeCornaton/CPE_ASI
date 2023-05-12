@@ -1,6 +1,9 @@
 package com.sp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sp.model.User;
+
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,6 +36,7 @@ public class Card {
 	private int defence;
 	private int price;
 	
+	@JsonBackReference
 	@ManyToOne
 	@JoinTable( name="TJ_USER_CARD",
 	            joinColumns = @JoinColumn( name = "idCard"),
@@ -250,6 +254,19 @@ public class Card {
 	 */
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+	    if (this == o) return true;
+	    if (o == null || getClass() != o.getClass()) return false;
+	    Card card = (Card) o;
+	    return idCard == card.idCard;
+	}
+
+	@Override
+	public int hashCode() {
+	    return Objects.hash(idCard);
 	}
 
 }

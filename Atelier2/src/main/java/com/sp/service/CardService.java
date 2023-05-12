@@ -55,7 +55,6 @@ public class CardService {
 	    Set<Card> cards = this.getCards();
 	    List<Card> shuffledCards = new ArrayList<>(cards);
 	    Collections.shuffle(shuffledCards);
-	    
 	    return shuffledCards.stream().limit(5).collect(Collectors.toSet());
 	
 
@@ -68,7 +67,7 @@ public class CardService {
 	 * @return The updated card of the repo
 	 */
 	public Card updateCard(Card c) {
-		  Card updatedCard = cRepo.save(c);
+		Card updatedCard = cRepo.save(c);
 		return updatedCard;
 	}
 	
@@ -100,7 +99,7 @@ public class CardService {
 	public Set<Card> getCardBuyable(){
 		return cRepo.getCardBuyable();
 	}
-	  
+
 	 
 	
 	
