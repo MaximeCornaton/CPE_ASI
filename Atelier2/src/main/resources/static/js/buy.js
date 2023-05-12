@@ -24,7 +24,7 @@ function setUpDocument() {
 }
 
 function getCardList() {
-  let cardList=[]
+  let cardList = [];
   fetch("/cardsToBuy", {
     method: "GET",
     headers: {
@@ -51,48 +51,59 @@ function showCard(array) {
     newContent = clone.firstElementChild.innerHTML
       .replace(/{{id}}/g, card.id)
       .replace(/{{family_src}}/g, card.family_src)
-      .replace(/{{family_name}}/g, card.family_name)
+      .replace(/{{family_name}}/g, card.family)
       .replace(/{{img_src}}/g, card.img_src)
       .replace(/{{name}}/g, card.name)
       .replace(/{{description}}/g, card.description)
       .replace(/{{hp}}/g, card.hp)
       .replace(/{{energy}}/g, card.energy)
       .replace(/{{attack}}/g, card.attack)
-      .replace(/{{defense}}/g, card.defense)
+      .replace(/{{defense}}/g, card.defence)
       .replace(/{{price}}/g, card.price);
     clone.firstElementChild.innerHTML = newContent;
+
+    clone.firstElementChild.addEventListener("click", function () {
+      showFullCard(card);
+    });
 
     let cardContainer = document.querySelector("#tableContent");
     cardContainer.appendChild(clone);
   }
 }
 
-function showFullCard(id){
-  fetch("/cards/" + id, {
-    method: "GET",
+function showFullCard(card) {
+  document.getElementById("cardNameId").innerHTML = card.name;
+  document.getElementById("cardFamilyId").innerHTML = card.family;
+  document.getElementById("cardDescriptionId").innerHTML = card.description;
+  for (const element of $(".cardHPId")) {
+    element.textContent = card.hp;
+  }
+  for (const element of $(".cardEnergyId")) {
+    element.textContent = card.energy;
+  }
+  document.getElementById("cardAttackId").innerHTML = card.attack;
+  $("#cardDefenceId")[0].textContent = card.defence;
+  document.getElementById("cardPriceId").innerHTML = card.price;
+  document.getElementById("cardImgId").src = card.imgUrl;
+  document.getElementById("sellButtonID").onclick = function () {
+    buy(card.id);
+  };
+  document.getElementById("card").style.display = "block";
+}
+
+function buy(idc) {
+  fetch("/buy", {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-  })
-    .then((response) => {
-      return response.text();
-    }
-    )
-    .then((data) => {
-      card = JSON.parse(data);
-      document.getElementById("cardNameId").innerHTML = card.name;
-      document.getElementById("cardFamilyId").innerHTML = card.family_name;
-      document.getElementById("cardDescriptionId").innerHTML = card.description;
-      document.getElementById("cardHPId").innerHTML = card.hp;
-      document.getElementById("cardEnergyId").innerHTML = card.energy;
-      document.getElementById("cardAttackId").innerHTML = card.attack;
-      document.getElementById("cardDefenceId").innerHTML = card.defense;
-      document.getElementById("cardPriceId").innerHTML = card.price;
-      document.getElementById("cardImgId").src = card.img_src;
-      document.getElementById("buyButtonID").onclick = function() {
-        buy(card.id)
-      };
-      document.getElementById("card").style.display = "block";
-    }
-    )
+    body: JSON.stringify({
+      idc: idc,
+      idu: localStorage.getItem("id"),
+    }),
+  }).then(function (_) {
+    document.getElementById(idc).parentNode.innerHTML = "";
+    document.getElementById("card").style.display = "none";
+    setUpDocument();
+  });
 }

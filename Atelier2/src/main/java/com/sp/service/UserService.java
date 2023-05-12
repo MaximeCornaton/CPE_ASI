@@ -46,7 +46,7 @@ public class UserService {
 	
 	
 	public User getUser(int id) {
-		Optional<User> uOpt = uRepository.findById(id);
+		Optional<User> uOpt = uRepository.findByIdUser(id);
 		if(uOpt.isPresent()) {
 			return uOpt.get();
 		}
@@ -55,16 +55,12 @@ public class UserService {
 		}
 	}
 	
-	public void buyCard(Card card, int idu) {
-		User user = getUser(idu);
+	public void buyCard(Card card, User user) {
 		user.addCard(card);
-		uRepository.save(user);
 	}
 	
-	public void sellCard(Card card, int idu) {
-		User user = getUser(idu);
+	public void sellCard(Card card, User user) {
 		user.delCard(card);
-		uRepository.save(user);
 	}
 	
 	public Set<Card> getCards(int id){
