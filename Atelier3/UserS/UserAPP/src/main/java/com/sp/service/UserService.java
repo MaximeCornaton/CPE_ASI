@@ -20,15 +20,12 @@ public class UserService {
 	}
 	
 	public void addUser(User u) {
-		
-		//u.setCardList(cServ.get5cards());
-		// fonction a appeler depuis CardAPP pour ajouter l'id de cette user a certaines cartes 
 		User createdUser = uRepository.save(u);
 		System.out.println(createdUser);
 	}
 	
-		public User updateUser(User u) {
-		  User updatedUser = uRepository.save(u);
+	public User updateUser(User u) {
+		User updatedUser = uRepository.save(u);
 		return updatedUser;
 	}
 	
@@ -44,7 +41,7 @@ public class UserService {
 	
 	
 	public User getUser(int id) {
-		Optional<User> uOpt = uRepository.findByIdUser(id);
+		Optional<User> uOpt = uRepository.findById(id);
 		if(uOpt.isPresent()) {
 			return uOpt.get();
 		}
@@ -52,15 +49,4 @@ public class UserService {
 			return null; 
 		}
 	}
-	
-	/*
-	 * public void buyCard(Card card, User user) { user.addCard(card); }
-	 * 
-	 * public void sellCard(Card card, User user) { user.delCard(card); }
-	 */
-	
-	/*
-	 * public Set<Card> getCards(int id){ User user = getUser(id); return
-	 * user.getCardList(); }
-	 */
 }

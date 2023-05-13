@@ -25,35 +25,29 @@ public class User {
 	
 	@Id
 	@GeneratedValue
-	private int idUser;
+	private int id;
 	private String name;
 	private String surname;
 	private String password;
 	private int money;
 	
-	/**
-	 * 
-	 */
+	
 	public User() {
 		
 	}
+	
 
-	/*
-	 * public void addCard(Card card) { this.cardList.add(card); }
-	 * 
-	 * public void delCard(Card card) { this.cardList.remove(card); }
-	 */
 	/**
 	 * @return the id
 	 */
 	public int getId() {
-		return idUser;
+		return id;
 	}
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(int id) {
-		this.idUser = id;
+		this.id = id;
 	}
 	/**
 	 * @return the name
@@ -106,7 +100,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [idUser=" + idUser + ", name=" + name + ", surname=" + surname + ", password=" + password
+		return "User [idUser=" + id + ", name=" + name + ", surname=" + surname + ", password=" + password
 				+ ", money=" + money + "]";
 	}
 
