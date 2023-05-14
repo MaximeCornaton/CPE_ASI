@@ -3,18 +3,11 @@
  */
 package com.sp.model;
 
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
  * @author paulaubry
@@ -22,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
  */
 @Entity @Table(name="T_USER")
 public class User {
-	
+
 	@Id
 	@GeneratedValue
 	private int id;
@@ -33,8 +26,23 @@ public class User {
 	
 	
 	public User() {
-		
 	}
+	
+	/**
+	 * @param id
+	 * @param name
+	 * @param surname
+	 * @param password
+	 * @param money
+	 */
+	public User(int id, String name, String surname, String password, int money) {
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+		this.password = password;
+		this.money = money;
+	}
+
 	
 
 	/**
