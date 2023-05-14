@@ -35,12 +35,7 @@ public class Card {
 	private int defence;
 	private int price;
 	
-	@JsonBackReference
-	@ManyToOne
-	@JoinTable( name="TJ_USER_CARD",
-	            joinColumns = @JoinColumn( name = "idCard"),
-	            inverseJoinColumns = @JoinColumn(name="idUser"))
-	private User user;
+	private int user_id;
 	
 
 
@@ -239,22 +234,28 @@ public class Card {
 		this.price = price;
 	}
 	
-	/**
-	 * 
-	 * @return The owner (user) of the card
-	 */
-	public User getUser() {
-		return user;
+	
+	
+	public int getIdCard() {
+		return idCard;
 	}
 
-	/**
-	 * 
-	 * @param The new owner (user) of the card
-	 */
-	public void setUser(User user) { 
-		this.user = user;
+
+	public void setIdCard(int idCard) {
+		this.idCard = idCard;
 	}
-	
+
+
+	public int getUser_id() {
+		return user_id;
+	}
+
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
+
+
 	@Override
 	public boolean equals(Object o) {
 	    if (this == o) return true;
