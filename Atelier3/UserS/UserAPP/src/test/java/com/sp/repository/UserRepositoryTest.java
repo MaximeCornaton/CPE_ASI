@@ -3,6 +3,8 @@
  */
 package com.sp.repository;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
@@ -18,6 +20,11 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.sp.model.User;
 
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
+
 /**
  * @author paulaubry
  *
@@ -28,13 +35,15 @@ class UserRepositoryTest {
 	
 	@Autowired
 	UserRepository uRepo;
+	
+	User savedUser;
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@BeforeEach
 	void setUp() throws Exception {
-		uRepo.save(new User(1,"Paul","Aubry","pass",1000));
+		savedUser = uRepo.save(new User(1,"Paul","Aubry","pass",1000));
 	}
 
 	/**
@@ -48,15 +57,15 @@ class UserRepositoryTest {
 	@Test
 	void testSaveAndGet() {
 		uRepo.deleteAll();
-		uRepo.save(new User(2,"test1","testSurname1","testPassword1",2000));
+		User user = uRepo.save(new User("test1","testSurname1","testPassword1",2000));
 		List<User> userList = new ArrayList<>();
 		uRepo.findAll().forEach(userList::add);
 		assertEquals(userList.size(), 1);
-		assertEquals(userList.get(0).getId(),1);
-		assertEquals(userList.get(0).getName(),"test1");
-		assertEquals(userList.get(0).getSurname(),"testSurname1");
-		assertEquals(userList.get(0).getPassword(),"testPAssword1");
-		assertEquals(userList.get(0).getMoney(),2000);
+		assertEquals(userList.get(0).getId(),user.getId());
+		assertEquals(userList.get(0).getName(),user.getName());
+		assertEquals(userList.get(0).getSurname(),user.getSurname());
+		assertEquals(userList.get(0).getPassword(),user.getPassword());
+		assertEquals(userList.get(0).getMoney(),user.getMoney());
 	}
 	
 	/**
@@ -64,12 +73,9 @@ class UserRepositoryTest {
 	 */
 	@Test
 	final void testFindBySurname() {
-		uRepo.save(new User(2,"test1","testSurname1","testPassword1",2000));
-		uRepo.save(new User(3,"test2","testSurname2","testPassword2",2000));
-		uRepo.save(new User(4,"test2","testSurname2","testPassword2",2000));
-		uRepo.save(new User(5,"test2","testSurname2","testPassword2",2000));
-		List<User> userList = new ArrayList<>();
-		uRepo.findBySurname("test2").forEach(userList::add);
+		Optional<User> found = uRepo.findBySurname("Aubry");
+		assertThat(found.isPresent()).isTrue();
+		assertThat(found.get().getSurname()).isEqualTo("Aubry");
 
 	}
 
@@ -78,7 +84,9 @@ class UserRepositoryTest {
 	 */
 	@Test
 	final void testFindByIdInt() {
-		fail("Not yet implemented"); // TODO
+		Optional<User> found = uRepo.findById(savedUser.getId());
+		assertThat(found.isPresent()).isTrue();
+		assertThat(found.get().getId()).isEqualTo(savedUser.getId());
 	}
 
 	/**
@@ -86,8 +94,11 @@ class UserRepositoryTest {
 	 */
 	@Test
 	final void testSave() {
-		uRepo.save(new User(1,"test","testSurname","testPassword",1000));
-		assertTrue(true);
+	    User user = new User("test","testSurname","testPassword",1000);
+	    uRepo.save(user);
+	    Optional<User> found = uRepo.findBySurname(user.getSurname());
+	    assertThat(found.isPresent()).isTrue();
+	    assertThat(found.get()).usingRecursiveComparison().isEqualTo(user);
 	}
 
 	/**
@@ -95,7 +106,12 @@ class UserRepositoryTest {
 	 */
 	@Test
 	final void testSaveAll() {
-		fail("Not yet implemented"); // TODO
+	    List<User> users = new ArrayList<>();
+	    users.add(new User(4,"test4","testSurname4","testPassword4",4000));
+	    users.add(new User(5,"test5","testSurname5","testPassword5",5000));
+	    uRepo.saveAll(users);
+	    Iterable<User> found = uRepo.findAll();
+	    assertThat(found).hasSize(3);
 	}
 
 	/**
@@ -103,15 +119,23 @@ class UserRepositoryTest {
 	 */
 	@Test
 	final void testFindByIdID() {
-		fail("Not yet implemented"); // TODO
-	}
+	    Optional<User> found = uRepo.findById(savedUser.getId());
+	    assertThat(found.isPresent()).isTrue();
+	    assertThat(found.get().getId()).isEqualTo(savedUser.getId());
+	    assertThat(found.get().getName()).isEqualTo(savedUser.getName());
+	    assertThat(found.get().getSurname()).isEqualTo(savedUser.getSurname());
+	    assertThat(found.get().getPassword()).isEqualTo(savedUser.getPassword());
+	    assertThat(found.get().getMoney()).isEqualTo(savedUser.getMoney());
+	 }
 
 	/**
 	 * Test method for {@link org.springframework.data.repository.CrudRepository#existsById(java.lang.Object)}.
 	 */
 	@Test
 	final void testExistsById() {
-		fail("Not yet implemented"); // TODO
+	    User user = uRepo.save(new User("test6","testSurname6","testPassword6",6000));
+	    boolean exists = uRepo.existsById(user.getId());
+	    assertThat(exists).isTrue();
 	}
 
 	/**
@@ -119,7 +143,12 @@ class UserRepositoryTest {
 	 */
 	@Test
 	final void testFindAll() {
-		fail("Not yet implemented"); // TODO
+	    List<User> users = new ArrayList<>();
+	    users.add(new User(7,"test7","testSurname7","testPassword7",7000));
+	    users.add(new User(8,"test8","testSurname8","testPassword8",8000));
+	    uRepo.saveAll(users);
+	    Iterable<User> found = uRepo.findAll();
+	    assertThat(found).hasSize(3);
 	}
 
 	/**
@@ -127,7 +156,14 @@ class UserRepositoryTest {
 	 */
 	@Test
 	final void testFindAllById() {
-		fail("Not yet implemented"); // TODO
+	    User user2 = uRepo.save(new User("test2", "testSurname2", "testPassword2", 2000));
+	    List<Integer> ids = new ArrayList<>();
+	    ids.add(savedUser.getId());
+	    ids.add(user2.getId());
+	    Iterable<User> users = uRepo.findAllById(ids);
+	    List<User> userList = StreamSupport.stream(users.spliterator(), false).collect(Collectors.toList());
+	    assertThat(userList).hasSize(2);
+	    assertThat(userList).extracting(User::getId).containsExactlyInAnyOrder(savedUser.getId(), user2.getId());
 	}
 
 	/**
@@ -135,7 +171,12 @@ class UserRepositoryTest {
 	 */
 	@Test
 	final void testCount() {
-		fail("Not yet implemented"); // TODO
+	    List<User> users = new ArrayList<>();
+	    users.add(new User(9,"test9","testSurname9","testPassword9",9000));
+	    users.add(new User(10,"test10","testSurname10","testPassword10",10000));
+	    uRepo.saveAll(users);
+	    long count = uRepo.count();
+	    assertThat(count).isEqualTo(3);
 	}
 
 	/**
@@ -143,7 +184,11 @@ class UserRepositoryTest {
 	 */
 	@Test
 	final void testDeleteById() {
-		fail("Not yet implemented"); // TODO
+	    User user = uRepo.save(new User("test11","testSurname11","testPassword11",11000));
+	    uRepo.save(user);
+	    uRepo.deleteById(user.getId());
+	    boolean exists = uRepo.existsById(user.getId());
+	    assertThat(exists).isFalse();
 	}
 
 	/**
@@ -151,7 +196,11 @@ class UserRepositoryTest {
 	 */
 	@Test
 	final void testDelete() {
-		fail("Not yet implemented"); // TODO
+	    User user = new User(12,"test12","testSurname12","testPassword12",12000);
+	    uRepo.save(user);
+	    uRepo.delete(user);
+	    boolean exists = uRepo.existsById(user.getId());
+	    assertThat(exists).isFalse();
 	}
 
 	/**
@@ -159,7 +208,16 @@ class UserRepositoryTest {
 	 */
 	@Test
 	final void testDeleteAllById() {
-		fail("Not yet implemented"); // TODO
+	    User user1 = uRepo.save(new User("test15","testSurname15","testPassword15",15000));
+	    User user2 = uRepo.save(new User("test16","testSurname16","testPassword16",16000));
+	    List<Integer> idsToDelete = new ArrayList<>();
+	    idsToDelete.add(user1.getId());
+	    idsToDelete.add(user2.getId());
+	    uRepo.deleteAllById(idsToDelete);
+	    boolean existsUser1 = uRepo.existsById(user1.getId());
+	    boolean existsUser2 = uRepo.existsById(user2.getId());
+	    assertThat(existsUser1).isFalse();
+	    assertThat(existsUser2).isFalse();
 	}
 
 	/**
@@ -167,7 +225,18 @@ class UserRepositoryTest {
 	 */
 	@Test
 	final void testDeleteAllIterableOfQextendsT() {
-		fail("Not yet implemented"); // TODO
+	    User user1 = new User(17,"test17","testSurname17","testPassword17",17000);
+	    User user2 = new User(18,"test18","testSurname18","testPassword18",18000);
+	    uRepo.save(user1);
+	    uRepo.save(user2);
+	    List<User> usersToDelete = new ArrayList<>();
+	    usersToDelete.add(user1);
+	    usersToDelete.add(user2);
+	    uRepo.deleteAll(usersToDelete);
+	    boolean existsUser1 = uRepo.existsById(user1.getId());
+	    boolean existsUser2 = uRepo.existsById(user2.getId());
+	    assertThat(existsUser1).isFalse();
+	    assertThat(existsUser2).isFalse();
 	}
 
 	/**
@@ -175,7 +244,13 @@ class UserRepositoryTest {
 	 */
 	@Test
 	final void testDeleteAll() {
-		fail("Not yet implemented"); // TODO
+	    List<User> users = new ArrayList<>();
+	    users.add(new User(13,"test13","testSurname13","testPassword13",13000));
+	    users.add(new User(14,"test14","testSurname14","testPassword14",14000));
+	    uRepo.saveAll(users);
+	    uRepo.deleteAll();
+	    long count = uRepo.count();
+	    assertThat(count).isEqualTo(0);
 	}
 
 }

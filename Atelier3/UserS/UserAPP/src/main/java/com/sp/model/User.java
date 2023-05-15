@@ -42,7 +42,19 @@ public class User {
 		this.password = password;
 		this.money = money;
 	}
-
+	
+	/**
+	 * @param name
+	 * @param surname
+	 * @param password
+	 * @param money
+	 */
+	public User(String name, String surname, String password, int money) {
+		this.name = name;
+		this.surname = surname;
+		this.password = password;
+		this.money = money;
+	}
 	
 
 	/**
