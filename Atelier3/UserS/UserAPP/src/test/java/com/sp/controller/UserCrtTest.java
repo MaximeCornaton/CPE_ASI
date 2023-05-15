@@ -4,6 +4,7 @@
 package com.sp.controller;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -20,9 +21,12 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockHttpServletResponse;
 
-
+import com.asi.equipe1.dto.RegisterDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sp.model.User;
 import com.sp.service.UserService;
@@ -70,6 +74,35 @@ class UserCrtTest {
         assertEquals(expectedJsonResponse, actualJsonResponse);
 
         verify(uService, times(1)).getUser(50);
+	}
+	
+	/**
+	 * Test method for {@link com.sp.controller.UserCrt#addUser(com.asi.equipe1.dto.RegisterDTO)}.
+	 * @throws Exception 
+	 */
+	@Test
+	final void testAddUser() throws Exception {
+	    RegisterDTO registerDTO = new RegisterDTO();
+	    registerDTO.setName("Test");
+	    registerDTO.setSurname("User");
+	    registerDTO.setPassword("password");
+
+	    User user = new User(registerDTO.getName(), registerDTO.getSurname(), registerDTO.getPassword(), 2000);
+
+	    Mockito.doNothing().when(uService).addUser(user);
+
+	    RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/register")
+	            .accept(MediaType.APPLICATION_JSON)
+	            .contentType(MediaType.APPLICATION_JSON)
+	            .content(new ObjectMapper().writeValueAsString(registerDTO));
+
+	    MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+
+	    MockHttpServletResponse response = result.getResponse();
+
+	    assertEquals(HttpStatus.OK.value(), response.getStatus());
+
+	    verify(uService, times(1)).addUser(any(User.class));
 	}
 
 }
