@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import com.sp.model.User;
 import com.sp.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,13 +15,11 @@ public class UserService {
 	UserRepository uRepository;
 	
 	public void addUser(User u) {
-		User createdUser = uRepository.save(u);
-		System.out.println(createdUser);
+		uRepository.save(u);
 	}
 	
 	public User updateUser(User u) {
-		User updatedUser = uRepository.save(u);
-		return updatedUser;
+		return uRepository.save(u);
 	}
 	
 	public User getUser(String surname) {

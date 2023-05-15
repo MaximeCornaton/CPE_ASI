@@ -59,7 +59,7 @@ class UserRepositoryTest {
 		User user = uRepo.save(new User("test1","testSurname1","testPassword1",2000));
 		List<User> userList = new ArrayList<>();
 		uRepo.findAll().forEach(userList::add);
-		assertEquals(userList.size(), 1);
+		assertEquals(1,userList.size());
 		assertEquals(userList.get(0).getId(),user.getId());
 		assertEquals(userList.get(0).getName(),user.getName());
 		assertEquals(userList.get(0).getSurname(),user.getSurname());
@@ -73,7 +73,7 @@ class UserRepositoryTest {
 	@Test
 	final void testFindBySurname() {
 		Optional<User> found = uRepo.findBySurname("Aubry");
-		assertThat(found.isPresent()).isTrue();
+		assertThat(found).isPresent();
 		assertThat(found.get().getSurname()).isEqualTo("Aubry");
 
 	}
@@ -84,7 +84,7 @@ class UserRepositoryTest {
 	@Test
 	final void testFindByIdInt() {
 		Optional<User> found = uRepo.findById(savedUser.getId());
-		assertThat(found.isPresent()).isTrue();
+		assertThat(found).isPresent();
 		assertThat(found.get().getId()).isEqualTo(savedUser.getId());
 	}
 
@@ -96,7 +96,7 @@ class UserRepositoryTest {
 	    User user = new User("test","testSurname","testPassword",1000);
 	    uRepo.save(user);
 	    Optional<User> found = uRepo.findBySurname(user.getSurname());
-	    assertThat(found.isPresent()).isTrue();
+	    assertThat(found).isPresent();
 	    assertThat(found.get()).usingRecursiveComparison().isEqualTo(user);
 	}
 
@@ -119,7 +119,7 @@ class UserRepositoryTest {
 	@Test
 	final void testFindByIdID() {
 	    Optional<User> found = uRepo.findById(savedUser.getId());
-	    assertThat(found.isPresent()).isTrue();
+	    assertThat(found).isPresent();
 	    assertThat(found.get().getId()).isEqualTo(savedUser.getId());
 	    assertThat(found.get().getName()).isEqualTo(savedUser.getName());
 	    assertThat(found.get().getSurname()).isEqualTo(savedUser.getSurname());
@@ -249,7 +249,7 @@ class UserRepositoryTest {
 	    uRepo.saveAll(users);
 	    uRepo.deleteAll();
 	    long count = uRepo.count();
-	    assertThat(count).isEqualTo(0);
+	    assertThat(count).isZero();
 	}
 
 }

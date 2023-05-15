@@ -1,12 +1,13 @@
 package com.sp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.asi.equipe1.dto.RegisterDTO;
 import com.sp.model.User;
 import com.sp.service.UserService;
 
@@ -20,13 +21,14 @@ public class UserCrt {
 	@Autowired
 	private UserService uService;
 	
-	@RequestMapping(value = {"/register"}, method = RequestMethod.POST)
-	public void addUser(@RequestBody User user) {
+	@PostMapping(value = {"/register"})
+	public void addUser(@RequestBody RegisterDTO userDTO) {
+		User user = new User(userDTO.getName(),userDTO.getSurname(),userDTO.getPassword(),2000);
 		uService.addUser(user);
 		
 	}
 	
-	@RequestMapping(value = {"/user/{id}"}, method = RequestMethod.GET)
+	@GetMapping(value = {"/user/{id}"})
 	public User getUser(@PathVariable int id) {
 		return uService.getUser(id);
 	}
