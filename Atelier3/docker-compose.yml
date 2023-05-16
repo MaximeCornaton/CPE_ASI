@@ -1,7 +1,21 @@
 version: "3"
 services:
+  proxyapp:
+    build:
+      context: proxy_server
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - userapp
+    networks:
+      - user-network-internal
+      - proxy-network-public
+
   userapp:
-    image: user-app:v1
+    build:
+      context: UserS/UserAPP
+      dockerfile: Dockerfile
     ports:
       - "8081:8081"
     depends_on:
@@ -13,7 +27,8 @@ services:
       - SPRING_DATASOURCE_PASSWORD=userpassword
     networks:
       - user-network-private
-      - user-network-public
+      - user-network-internal
+
   db:
     image: mysql:5.7
     ports:
@@ -26,8 +41,10 @@ services:
       - MYSQL_PASSWORD=userpassword
     networks:
       - user-network-private
+
 networks:
   user-network-private:
     internal: true
-  user-network-public:
-    
+  user-network-internal:
+    internal: true
+  proxy-network-public:
