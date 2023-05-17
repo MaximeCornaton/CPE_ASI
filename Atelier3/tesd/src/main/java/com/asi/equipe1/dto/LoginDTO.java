@@ -4,6 +4,7 @@ public class LoginDTO {
 
 	private String surname;
 	private String password;
+	
 	public String getSurname() {
 		return surname;
 	}

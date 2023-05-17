@@ -12,8 +12,8 @@ public class CardDTO {
 	private String name;
 	private String description;
 	private String imgUrl;
-	private Family family;
-	private Affinity affinity;
+	private String family;
+	private String affinity;
 	private int hp;
 	private int energy;
 	private int attack;
@@ -88,7 +88,7 @@ public class CardDTO {
 	/**
 	 * @return the family
 	 */
-	public Family getFamily() {
+	public String getFamily() {
 		return family;
 	}
 
@@ -96,7 +96,7 @@ public class CardDTO {
 	/**
 	 * @param family the family to set
 	 */
-	public void setFamily(Family family) {
+	public void setFamily(String family) {
 		this.family = family;
 	}
 
@@ -104,7 +104,7 @@ public class CardDTO {
 	/**
 	 * @return the affinity
 	 */
-	public Affinity getAffinity() {
+	public String getAffinity() {
 		return affinity;
 	}
 
@@ -112,7 +112,7 @@ public class CardDTO {
 	/**
 	 * @param affinity the affinity to set
 	 */
-	public void setAffinity(Affinity affinity) {
+	public void setAffinity(String affinity) {
 		this.affinity = affinity;
 	}
 

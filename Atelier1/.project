@@ -20,6 +20,13 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>SPWebAppStep3</name>
+			<type>2</type>
+			<location>/Users/maxime/eclipse-workspace/CPE_ASI/SPWebAppStep3</location>
+		</link>
+	</linkedResources>
 	<filteredResources>
 		<filter>
 			<id>1682675121418</id>
