@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Atelier1_E1</name>
+	<name>SPWebAppStep3</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -20,16 +20,9 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>SPWebAppStep3</name>
-			<type>2</type>
-			<location>/Users/maxime/eclipse-workspace/CPE_ASI/SPWebAppStep3</location>
-		</link>
-	</linkedResources>
 	<filteredResources>
 		<filter>
-			<id>1682675121418</id>
+			<id>0</id>
 			<name></name>
 			<type>30</type>
 			<matcher>
