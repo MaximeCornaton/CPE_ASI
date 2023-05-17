@@ -1,0 +1,32 @@
+<<<<<<< HEAD
+
+=======
+package com.sp.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class AuthService{
+	
+	@Autowired 
+	UserService userService;
+	
+	public User getLogs(String surname, String psswd) throws FonctionalException {
+		User usr = userService.getUser(surname);
+		System.out.println(usr);
+		if(usr == null){
+			throw new FonctionalException("User inconnu");
+		}
+		if (usr.getPassword().equals(psswd)) {
+			return usr;
+		}else {
+			throw new FonctionalException("MDP incorrect");
+			
+		} 
+		
+	}
+	
+	
+}
+>>>>>>> 8958dc365e2ae1133da9c41fc0ccf3c6dda58905
