@@ -49,7 +49,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
 		<dependency>
 			<groupId>com.asi.equipe1</groupId>
 			<artifactId>UserAPP</artifactId>
