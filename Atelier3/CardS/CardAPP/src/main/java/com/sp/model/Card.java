@@ -53,6 +53,20 @@ public class Card {
 		this.price = prix;
 	}
 	
+	public Card(int id,String name,String description,String imgUrl, Family family, Affinity affinity, int hp, int energy, int attack, int defence, int prix) {
+		this.idCard = id;
+		this.name = name;
+		this.description = description;
+		this.imgUrl= imgUrl;
+		this.family = family;
+		this.affinity = affinity;
+		this.hp = hp;
+		this.energy = energy;
+		this.attack = attack;
+		this.defence = defence;
+		this.price = prix;
+	}
+	
 	
 	public Card() {
 		this("", "", "", Family.Bird, Affinity.Wind, 0, 0, 0, 0, 0);

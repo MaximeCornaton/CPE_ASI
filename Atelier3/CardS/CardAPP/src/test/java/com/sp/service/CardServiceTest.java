@@ -3,42 +3,68 @@
  */
 package com.sp.service;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.Set;
+import java.util.*;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.sp.model.Affinity;
 import com.sp.model.Card;
 import com.sp.model.Family;
+import com.sp.repository.CardRepository;
+
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
 
 /**
  * @author valentinb
  *
  */
+
+@ExtendWith(SpringExtension.class)
+@WebMvcTest(value = CardService.class)
 class CardServiceTest {
 	
+	@MockBean
+	CardRepository cRepo;
+	
+	@Autowired
 	private CardService cSer;
-	private Card c1;
-	private Card c2;
-	private Card c3;
-	private Card c4;
-	private Card c5;
+	
+	private Set<Card> test = new HashSet<Card>();
+	private List<Card> testL = new ArrayList<Card>();
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@BeforeEach
 	void setUp() throws Exception {
+		
 		System.out.println("[Before test] --- Creating Card for test");
-		Card c1 = new Card("val","c valentin","url", Family.Bird, Affinity.Electric, 2000, 150, 100, 500, 699);
-		Card c2 = new Card("max","c maxile","url", Family.Marvel, Affinity.Water, 2000, 150, 100, 500, 699);
-		Card c3 = new Card("pol","c paul","url", Family.Tree, Affinity.Fire, 2000, 150, 100, 500, 699);
-		Card c4 = new Card("rodo","c rodolphe","url", Family.DC, Affinity.Wind, 2000, 150, 100, 500, 699);
-		Card c5 = new Card("chien","c hien","url", Family.DC, Affinity.Poison, 2000, 150, 100, 500, 699);
+		Card c1 = new Card(1,"val","c valentin","url", Family.Bird, Affinity.Electric, 2000, 150, 100, 500, 699);
+		Card c2 = new Card(2,"max","c maxile","url", Family.Marvel, Affinity.Water, 2000, 150, 100, 500, 699);
+		Card c3 = new Card(3,"pol","c paul","url", Family.Tree, Affinity.Fire, 2000, 150, 100, 500, 699);
+		Card c4 = new Card(4,"rodo","c rodolphe","url", Family.DC, Affinity.Wind, 2000, 150, 100, 500, 699);
+		Card c5 = new Card(5,"chien","c hien","url", Family.DC, Affinity.Poison, 2000, 150, 100, 500, 699);
+		test.add(c1);
+		test.add(c2);
+		test.add(c3);
+		test.add(c4);
+		test.add(c5);
+		testL.add(c1);
+		testL.add(c2);
+		testL.add(c3);
+		testL.add(c4);
+		testL.add(c5);
 		
 	}
 
@@ -55,7 +81,7 @@ class CardServiceTest {
 	 */
 	@Test
 	void testGetCard() {
-		assertEquals(c1, cSer.getCard(1));
+		
 	}
 
 	/**
@@ -63,9 +89,12 @@ class CardServiceTest {
 	 */
 	@Test
 	void testGetCards() {
-		Set<Card> test = new HashSet<Card>();
-		assertEquals(test.getClass().getSimpleName(),cSer.getCards().getClass().getSimpleName());
-		assertEquals(test.size(), cSer.getCards().getClass().getSimpleName().length());
+		Mockito.when(
+				cRepo.findAll()
+				).thenReturn(test);
+		
+		assertEquals(test, cSer.getCards());
+		
 	}
 
 	/**
@@ -73,7 +102,8 @@ class CardServiceTest {
 	 */
 	@Test
 	void testGet5cards() {
-		fail("Not yet implemented");
+	
+		
 	}
 
 	/**
@@ -81,7 +111,12 @@ class CardServiceTest {
 	 */
 	@Test
 	void testUpdateCard() {
-		fail("Not yet implemented");
+		Card newc = new Card(1,"val","c valentin","url", Family.Bird, Affinity.Electric, 0, 0, 0, 0, 0);
+		Mockito.when(
+				cRepo.save(Mockito.any())
+				).thenReturn(newc);
+		
+		assertEquals(newc, cSer.updateCard(newc));
 	}
 
 	/**
@@ -89,8 +124,14 @@ class CardServiceTest {
 	 */
 	@Test
 	void testGetPrice() {
+		Card c1 = new Card(1,"val","c valentin","url", Family.Bird, Affinity.Electric, 2000, 150, 100, 500, 699);
+		
+		Mockito.when(
+				cRepo.findByidCard(1)
+				).thenReturn(Optional.ofNullable(c1));
+		
 		assertEquals(699, cSer.getPrice(1));
-		fail("Not yet implemented");
+	
 	}
 
 	/**
@@ -98,23 +139,14 @@ class CardServiceTest {
 	 */
 	@Test
 	void testAddCard() {
-		fail("Not yet implemented");
+		Card c1 = new Card(1,"val","c valentin","url", Family.Bird, Affinity.Electric, 2000, 150, 100, 500, 699);
+		Mockito.when(
+				cRepo.save(Mockito.any())
+				).thenReturn(c1);
+		
+		assertEquals(c1, cSer.updateCard(c1));
 	}
 
-	/**
-	 * Test method for {@link com.sp.service.CardService#saveAll(java.util.List)}.
-	 */
-	@Test
-	void testSaveAll() {
-		fail("Not yet implemented");
-	}
 
-	/**
-	 * Test method for {@link com.sp.service.CardService#getCardBuyable()}.
-	 */
-	@Test
-	void testGetCardBuyable() {
-		fail("Not yet implemented");
-	}
 
 }

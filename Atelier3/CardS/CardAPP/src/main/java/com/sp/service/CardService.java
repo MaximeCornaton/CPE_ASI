@@ -93,6 +93,7 @@ public class CardService {
 
 	public void saveAll(List<Card> cards) {
 		cRepo.saveAll(cards);
+		
 	}
 	  
 	public Set<Card> getCardBuyable(){
