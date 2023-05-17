@@ -3,19 +3,19 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.asi.equipe1</groupId>
-	<artifactId>BuySellAPP</artifactId>
+	<groupId>com.tuto.springboot</groupId>
+	<artifactId>SPWebAppStep3</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.7.RELEASE</version>
+		<version>2.7.11</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	
-	<name>SPWebApp</name>
+	<name>SPWebAppStep3</name>
 	<description>Project Sample for using Springboot</description>
 
 	<properties>
@@ -48,6 +48,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.asi.equipe1</groupId>
+			<artifactId>UserAPP</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
